@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chitiet.vn/sitemap-index.xml
