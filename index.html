@@ -373,7 +373,7 @@ Chúng tôi luôn muốn biết mọi ý tưởng/nhu cầu của bạn, hãy c�
                 try {
                     await fetch(SCRIPT_URL, {
                         method: "POST",
-                        body: JSON.stringify(payload),
+                        body: new URLSearchParams(payload),
                     });
                     alert("Đã gửi đề xuất. Cảm ơn bạn!");
                     form.reset();
