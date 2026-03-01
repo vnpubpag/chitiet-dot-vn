@@ -361,12 +361,20 @@ Chúng tôi luôn muốn biết mọi ý tưởng/nhu cầu của bạn, hãy c�
             form.addEventListener("submit", async (e) => {
                 e.preventDefault();
 
+                let clientId = localStorage.getItem("client_id");
+
+                if (!clientId) {
+                    clientId = crypto.randomUUID();
+                    localStorage.setItem("client_id", clientId);
+                }
+
                 const formData = new FormData(form);
                 const payload = {
                     featureName: formData.get("featureName"),
                     description: formData.get("description"),
                     frequent: formData.get("frequent") === "on",
                     email: formData.get("email"),
+                    clientId: clientId,
                     userAgent: navigator.userAgent,
                 };
 
