@@ -379,17 +379,30 @@ Chúng tôi luôn muốn biết mọi ý tưởng/nhu cầu của bạn, hãy c�
                 };
 
                 try {
-                    await fetch(SCRIPT_URL, {
+                    const response = await fetch(SCRIPT_URL, {
                         method: "POST",
-                        mode: "no-cors",
+                        mode: "cors",
                         headers: {
                             "Content-Type": "text/plain;charset=utf-8",
                         },
                         body: JSON.stringify(payload),
                     });
-                    alert("Đã gửi đề xuất. Cảm ơn bạn!");
-                    form.reset();
-                    closeModal();
+
+                    if (!response.ok) {
+                        throw new Error(
+                            `HTTP error! status: ${response.status}`,
+                        );
+                    }
+
+                    const result = await response.json();
+
+                    if (result.status === "success") {
+                        alert("Đã gửi đề xuất. Cảm ơn bạn!");
+                        form.reset();
+                        closeModal();
+                    } else {
+                        alert("Lỗi: " + (result.error || "Không xác định"));
+                    }
                 } catch {
                     alert("Có lỗi xảy ra. Vui lòng thử lại.");
                 }
