@@ -1,7 +1,9 @@
 <!DOCTYPE html><html lang="vi" data-theme="light" data-style="clean" data-is-dev="false"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Design System Showcase - chitiet.vn</title><meta name="robots" content="noindex, nofollow"><link rel="icon" type="image/png" href="/logo.png"><link rel="icon" href="/favicon.ico"><!-- Access control: redirect if not dev and no ?dev query --><script>
-            (function() {
+            (function () {
                 var isDev = document.documentElement.dataset.isDev === "true";
-                var hasDevQuery = new URLSearchParams(location.search).has("dev");
+                var hasDevQuery = new URLSearchParams(location.search).has(
+                    "dev",
+                );
                 if (!isDev && !hasDevQuery) {
                     location.replace("/");
                 }
