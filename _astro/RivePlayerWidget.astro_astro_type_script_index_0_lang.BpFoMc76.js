@@ -1,0 +1,117 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["_astro/rive.DD9Xd_IY.js","_astro/rolldown-runtime.DAXXjFlN.js"])))=>i.map(i=>d[i]);
+import { o as e } from "./rolldown-runtime.DAXXjFlN.js";
+import { t } from "./preload-helper.L5lOfJxi.js";
+(async ()=>{
+    var n = [
+        `#6366f1`,
+        `#ec4899`,
+        `#14b8a6`,
+        `#f59e0b`,
+        `#8b5cf6`,
+        `#ef4444`
+    ], r = null, i = null, a = document.getElementById(`rive-trigger-btn`), o = document.getElementById(`rive-picker`), s = document.getElementById(`rive-picker-close`), c = document.getElementById(`rive-player-overlay`), l = document.getElementById(`rive-player-exit`), u = document.getElementById(`rive-player-actions`), d = document.getElementById(`rive-canvas`), f = document.getElementById(`rive-player-label`);
+    if (a && o && c) {
+        let m = null;
+        window.addEventListener(`scroll`, ()=>{
+            a.classList.add(`is-scrolling`), m && clearTimeout(m), m = setTimeout(()=>{
+                a.classList.remove(`is-scrolling`);
+            }, 500);
+        }, {
+            passive: !0
+        }), a.addEventListener(`click`, ()=>{
+            let e = o.getAttribute(`aria-hidden`) === `false`;
+            o.setAttribute(`aria-hidden`, e ? `true` : `false`);
+        }), s?.addEventListener(`click`, ()=>{
+            o.setAttribute(`aria-hidden`, `true`);
+        }), document.addEventListener(`click`, (e)=>{
+            let t = e.target;
+            !o.contains(t) && t !== a && !a.contains(t) && o.setAttribute(`aria-hidden`, `true`);
+        }), o.querySelectorAll(`.rive-picker__item`).forEach((e)=>{
+            e.addEventListener(`click`, ()=>{
+                let t = e, n = t.dataset.file, r = t.dataset.name || ``;
+                n && (h(n, r), o.setAttribute(`aria-hidden`, `true`));
+            });
+        });
+        async function h(n, a) {
+            v(), c?.setAttribute(`aria-hidden`, `false`), document.body.style.overflow = `hidden`, f && (f.textContent = a);
+            try {
+                i ||= (await t(()=>import(`./rive.DD9Xd_IY.js`).then(async (m)=>{
+                        await m.__tla;
+                        return m;
+                    }).then((t)=>e(t.default, 1)), __vite__mapDeps([0,1]))).Rive, r = new i({
+                    src: n,
+                    canvas: d,
+                    autoplay: !0,
+                    onLoad: ()=>{
+                        r.resizeDrawingSurfaceToCanvas();
+                        let e = r.stateMachineNames;
+                        e && e.length > 0 && r.play(e), setTimeout(()=>g(), 150);
+                    },
+                    onLoadError: ()=>{
+                        u && (u.innerHTML = `<span class="rive-player__error">Không thể tải animation</span>`);
+                    }
+                });
+            } catch  {
+                u && (u.innerHTML = `<span class="rive-player__error">Lỗi tải Rive runtime</span>`);
+            }
+        }
+        function g() {
+            if (!u || !r) return;
+            u.innerHTML = ``;
+            let e = r.stateMachineNames;
+            if (!e || e.length === 0) {
+                let e = r.animationNames;
+                e && e.length > 1 && e.forEach((e, t)=>{
+                    let i = p(e, n[t % n.length]);
+                    i.addEventListener(`click`, ()=>r.play(e)), u.appendChild(i);
+                });
+                return;
+            }
+            let t = 0;
+            e.forEach((e)=>{
+                let i = r.stateMachineInputs(e);
+                i && i.forEach((e)=>{
+                    let r = n[t % n.length];
+                    if (t++, typeof e.fire == `function`) {
+                        let t = p(e.name, r);
+                        t.addEventListener(`click`, ()=>e.fire()), u.appendChild(t);
+                    } else if (typeof e.value == `boolean`) {
+                        let t = p(`${e.name}: ${e.value ? `ON` : `OFF`}`, r, e.value);
+                        t.addEventListener(`click`, ()=>{
+                            e.value = !e.value, t.textContent = `${e.name}: ${e.value ? `ON` : `OFF`}`, t.classList.toggle(`is-active`, e.value);
+                        }), u.appendChild(t);
+                    } else if (typeof e.value == `number`) {
+                        let t = document.createElement(`div`);
+                        t.className = `rive-action-group`;
+                        let n = p(`−`, r), i = document.createElement(`span`);
+                        i.className = `rive-action-label`, i.textContent = `${e.name}: ${e.value}`;
+                        let a = p(`+`, r);
+                        n.addEventListener(`click`, ()=>{
+                            --e.value, i.textContent = `${e.name}: ${e.value}`;
+                        }), a.addEventListener(`click`, ()=>{
+                            e.value += 1, i.textContent = `${e.name}: ${e.value}`;
+                        }), t.appendChild(n), t.appendChild(i), t.appendChild(a), u.appendChild(t);
+                    }
+                });
+            });
+        }
+        function _() {
+            v(), c?.setAttribute(`aria-hidden`, `true`), document.body.style.overflow = ``;
+        }
+        function v() {
+            r &&= (r.cleanup(), null), u && (u.innerHTML = ``);
+        }
+        l?.addEventListener(`click`, _), c.addEventListener(`click`, (e)=>{
+            let t = e.target;
+            (t === c || t.classList.contains(`rive-player-overlay__bg`)) && _();
+        }), document.addEventListener(`keydown`, (e)=>{
+            e.key === `Escape` && c.getAttribute(`aria-hidden`) === `false` && _();
+        }), window.addEventListener(`resize`, ()=>{
+            r && r.resizeDrawingSurfaceToCanvas();
+        });
+    }
+    function p(e, t, n = !1) {
+        let r = document.createElement(`button`);
+        return r.className = `rive-action-btn${n ? ` is-active` : ``}`, r.textContent = e, r.style.background = t, r;
+    }
+})();

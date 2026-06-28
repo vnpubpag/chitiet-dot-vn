@@ -1,0 +1,753 @@
+import { t as e } from "./preload-helper.L5lOfJxi.js";
+(async ()=>{
+    function t(e, t, n) {
+        return Math.max(t, Math.min(n, e));
+    }
+    function n(e) {
+        let t = 1 / 0, n = 1 / 0, r = -1 / 0, i = -1 / 0;
+        for (let a of e)t = Math.min(t, a.x), n = Math.min(n, a.y), r = Math.max(r, a.x), i = Math.max(i, a.y);
+        return {
+            x: t,
+            y: n,
+            width: Math.max(1, r - t),
+            height: Math.max(1, i - n)
+        };
+    }
+    function r(e, t = 5) {
+        if (e.length < 4) return e.slice();
+        let n = [];
+        for(let r = 0; r < e.length; r++){
+            let i = e[(r - 1 + e.length) % e.length], a = e[r], o = e[(r + 1) % e.length], s = e[(r + 2) % e.length];
+            for(let e = 0; e < t; e++){
+                let r = e / t, c = r * r, l = c * r;
+                n.push({
+                    x: .5 * (2 * a.x + (-i.x + o.x) * r + (2 * i.x - 5 * a.x + 4 * o.x - s.x) * c + (-i.x + 3 * a.x - 3 * o.x + s.x) * l),
+                    y: .5 * (2 * a.y + (-i.y + o.y) * r + (2 * i.y - 5 * a.y + 4 * o.y - s.y) * c + (-i.y + 3 * a.y - 3 * o.y + s.y) * l)
+                });
+            }
+        }
+        return n;
+    }
+    function i(e) {
+        let t = Math.sin(e * 12.9898) * 43758.5453;
+        return t - Math.floor(t);
+    }
+    function a(e) {
+        let t = e.replace(`#`, ``), n = t.length === 3 ? t.split(``).map((e)=>e + e).join(``) : t;
+        return `${parseInt(n.slice(0, 2), 16)}, ${parseInt(n.slice(2, 4), 16)}, ${parseInt(n.slice(4, 6), 16)}`;
+    }
+    function o(e, t) {
+        if (t.length !== 0) {
+            e.beginPath(), e.moveTo(t[0].x, t[0].y);
+            for(let n = 1; n < t.length; n++){
+                let r = t[n], i = t[(n + 1) % t.length], a = (r.x + i.x) * .5, o = (r.y + i.y) * .5;
+                e.quadraticCurveTo(r.x, r.y, a, o);
+            }
+            e.closePath();
+        }
+    }
+    function s(e, t, n) {
+        e.beginPath(), e.moveTo(t.start.x, t.start.y), e.lineTo(t.end.x, t.end.y), e.lineWidth = t.width, e.strokeStyle = n, e.stroke();
+    }
+    function c(e, t, n) {
+        e.save();
+        for(let r = 0; r < 260; r++){
+            let a = i(r * .71) * t, o = i(r * 1.11 + 17) * n, s = 4 + i(r * .39 + 3) * 12, c = -.4 + i(r * .87 + 9) * .8;
+            e.strokeStyle = `rgba(84, 78, 72, ${.01 + i(r * .49 + 5) * .012})`, e.lineWidth = .5, e.beginPath(), e.moveTo(a, o), e.lineTo(a + Math.cos(c) * s, o + Math.sin(c) * s), e.stroke();
+        }
+        e.restore();
+    }
+    function l(e, t) {
+        let n = e.getContext(`2d`);
+        if (!n) throw Error(`Canvas 2D context is unavailable`);
+        n.clearRect(0, 0, e.width, e.height), n.fillStyle = t.palette.background, n.fillRect(0, 0, e.width, e.height), c(n, e.width, e.height), n.lineCap = `round`, n.lineJoin = `round`, n.globalCompositeOperation = `multiply`;
+        for (let e of t.backgroundStrokes)s(n, e, `rgba(${a(e.color)}, ${e.alpha.toFixed(3)})`);
+        n.globalCompositeOperation = `source-over`, n.save(), o(n, t.outline), n.clip(), n.lineCap = `round`, n.lineJoin = `round`, n.globalCompositeOperation = `multiply`;
+        for (let e of t.strokes)s(n, e, `rgba(${a(e.color)}, ${e.alpha.toFixed(3)})`);
+        for (let e of t.edges)s(n, e, `rgba(${a(e.color)}, ${e.alpha.toFixed(3)})`);
+        n.globalCompositeOperation = `source-over`, n.restore(), n.lineCap = `round`, n.lineJoin = `round`, n.strokeStyle = `rgba(24, 21, 19, 0.16)`, n.lineWidth = t.outlineWidth + 1.2, o(n, t.outline), n.stroke(), n.strokeStyle = t.palette.outline, n.lineWidth = t.outlineWidth, o(n, t.outline), n.stroke();
+    }
+    var u = `/models/cat-segmentation.onnx`, d = `/libs/catSketchWorker.js`, f = `cat-sketch-model-cache`, p = `models`, m = `cat-segmentation-v1`, h = `/libs/onnxruntime/ort.wasm.min.mjs`, g = `/libs/onnxruntime/ort-wasm-simd-threaded.mjs`, _ = `/libs/onnxruntime/ort-wasm-simd-threaded.wasm`, v = 640, y = 32, b = 15, ee = .25, te = .5, x = null, ne = !1, S = null, re = 0, C = new Map, w = null, T = null;
+    function ie() {
+        return typeof window < `u`;
+    }
+    function E(e) {
+        return ie() ? new URL(e, window.location.origin).href : e;
+    }
+    function ae(e) {
+        let t = document.createElement(`canvas`);
+        t.width = e.width, t.height = e.height;
+        let n = t.getContext(`2d`);
+        if (!n) throw Error(`Canvas 2D context is unavailable`);
+        return n.drawImage(e, 0, 0), n.getImageData(0, 0, t.width, t.height);
+    }
+    function oe() {
+        return new Promise((e, t)=>{
+            let n = indexedDB.open(f, 1);
+            n.onupgradeneeded = ()=>{
+                let e = n.result;
+                e.objectStoreNames.contains(p) || e.createObjectStore(p);
+            }, n.onsuccess = ()=>e(n.result), n.onerror = ()=>t(n.error ?? Error(`IndexedDB open failed`));
+        });
+    }
+    async function se() {
+        if (!(`indexedDB` in globalThis)) return null;
+        let e = await oe();
+        return await new Promise((t, n)=>{
+            let r = e.transaction(p, `readonly`).objectStore(p).get(m);
+            r.onsuccess = ()=>{
+                t(r.result instanceof ArrayBuffer ? r.result : null), e.close();
+            }, r.onerror = ()=>{
+                n(r.error ?? Error(`IndexedDB read failed`)), e.close();
+            };
+        });
+    }
+    async function ce(e) {
+        if (!(`indexedDB` in globalThis)) return;
+        let t = await oe();
+        await new Promise((n, r)=>{
+            let i = t.transaction(p, `readwrite`).objectStore(p).put(e, m);
+            i.onsuccess = ()=>{
+                n(), t.close();
+            }, i.onerror = ()=>{
+                r(i.error ?? Error(`IndexedDB write failed`)), t.close();
+            };
+        });
+    }
+    async function le() {
+        let e = await se().catch(()=>null);
+        if (e) return e;
+        let t = await fetch(u, {
+            cache: `force-cache`
+        });
+        if (!t.ok) return null;
+        let n = await t.arrayBuffer();
+        return await ce(n).catch(()=>void 0), n;
+    }
+    async function D() {
+        let t = E(h);
+        return w ??= e(()=>import(t).then(async (m)=>{
+                await m.__tla;
+                return m;
+            }), []).catch((e)=>{
+            throw w = null, e;
+        }), w;
+    }
+    async function ue() {
+        return T ??= (async ()=>{
+            let e = await le().catch(()=>null);
+            if (!e) return null;
+            let t = await D();
+            return t.env.wasm.wasmPaths = {
+                mjs: E(g),
+                wasm: E(_)
+            }, t.env.wasm.numThreads = 1, t.env.wasm.proxy = !1, await t.InferenceSession.create(e, {
+                executionProviders: [
+                    `wasm`
+                ],
+                graphOptimizationLevel: `all`
+            });
+        })().catch((e)=>{
+            throw T = null, e;
+        }), T;
+    }
+    async function O() {
+        if (!ne) return S || (S = new Promise((e, t)=>{
+            x = new Worker(d), x.onmessage = (n)=>{
+                if (n.data.type === `ready`) {
+                    ne = !0, x.onmessage = de, e();
+                    return;
+                }
+                S = null, x?.terminate(), x = null, t(Error(n.data.message));
+            }, x.onerror = ()=>{
+                S = null, x?.terminate(), x = null, t(Error(`Cat sketch worker failed to start`));
+            }, x.postMessage({
+                type: `init`
+            });
+        }), S);
+    }
+    function de(e) {
+        let t = e.data, n = C.get(t.id);
+        if (n) {
+            if (C.delete(t.id), t.type === `segmentError`) {
+                n.reject(Error(t.message));
+                return;
+            }
+            n.resolve({
+                bbox: t.bbox,
+                contour: t.contour,
+                mask: {
+                    width: t.mask.width,
+                    height: t.mask.height,
+                    data: new Uint8ClampedArray(t.mask.data)
+                }
+            });
+        }
+    }
+    async function k(e) {
+        return await O(), await new Promise((t, n)=>{
+            if (C.set(e.id, {
+                resolve: t,
+                reject: n
+            }), e.type === `segment`) {
+                x.postMessage(e, [
+                    e.imageData.data.buffer
+                ]);
+                return;
+            }
+            x.postMessage(e, [
+                e.maskData.buffer
+            ]);
+        });
+    }
+    function A(e) {
+        return 1 / (1 + Math.exp(-e));
+    }
+    function fe(e, t) {
+        let n = Math.max(e.x1, t.x1), r = Math.max(e.y1, t.y1), i = Math.min(e.x2, t.x2), a = Math.min(e.y2, t.y2), o = Math.max(0, i - n) * Math.max(0, a - r);
+        if (o <= 0) return 0;
+        let s = Math.max(0, e.x2 - e.x1) * Math.max(0, e.y2 - e.y1) + Math.max(0, t.x2 - t.x1) * Math.max(0, t.y2 - t.y1) - o;
+        return s <= 0 ? 0 : o / s;
+    }
+    function pe(e) {
+        let t = [
+            ...e
+        ].sort((e, t)=>t.score - e.score), n = [];
+        for(; t.length > 0;){
+            let e = t.shift();
+            n.push(e);
+            for(let n = t.length - 1; n >= 0; n--)e.classIndex === t[n].classIndex && fe(e, t[n]) > te && t.splice(n, 1);
+        }
+        return n;
+    }
+    function me(e) {
+        let t = e.data, n = e.dims;
+        if (n.length !== 3 || n[0] !== 1) return [];
+        let r = n[1], i = n[2], a = r - 4 - y;
+        if (a <= 0) return [];
+        let o = [];
+        for(let e = 0; e < i; e++){
+            let n = -1, r = 0;
+            for(let o = 0; o < a; o++){
+                let a = t[(4 + o) * i + e], s = a <= 1 && a >= 0 ? a : A(a);
+                s > r && (r = s, n = o);
+            }
+            if (r < ee) continue;
+            let s = t[e], c = t[i + e], l = t[i * 2 + e], u = t[i * 3 + e], d = Math.max(0, s - l / 2), f = Math.max(0, c - u / 2), p = Math.min(v, s + l / 2), m = Math.min(v, c + u / 2);
+            if (p - d < 4 || m - f < 4) continue;
+            let h = new Float32Array(y);
+            for(let n = 0; n < y; n++)h[n] = t[(4 + a + n) * i + e];
+            o.push({
+                x1: d,
+                y1: f,
+                x2: p,
+                y2: m,
+                score: r,
+                classIndex: n,
+                maskCoefficients: h
+            });
+        }
+        return pe(o);
+    }
+    function he(e, t) {
+        let n = t.data, r = t.dims;
+        if (r.length !== 4 || r[0] !== 1 || r[1] !== y) return null;
+        let i = r[2], a = r[3], o = new Uint8ClampedArray(v * v), s = a / v, c = i / v;
+        for(let t = 0; t < v; t++){
+            let r = Math.min(i - 1, Math.floor(t * c));
+            for(let c = 0; c < v; c++){
+                if (c < e.x1 || c > e.x2 || t < e.y1 || t > e.y2) {
+                    o[t * v + c] = 0;
+                    continue;
+                }
+                let l = Math.min(a - 1, Math.floor(c * s)), u = r * a + l, d = 0;
+                for(let t = 0; t < y; t++)d += e.maskCoefficients[t] * n[t * a * i + u];
+                o[t * v + c] = A(d) >= .5 ? 255 : 0;
+            }
+        }
+        return {
+            width: v,
+            height: v,
+            data: o
+        };
+    }
+    async function ge(e) {
+        let t = await ue();
+        if (!t) return null;
+        let n = t.inputNames[0], r = t.inputMetadata[n]?.dimensions ?? [], i = typeof r[2] == `number` ? r[2] : v, a = typeof r[3] == `number` ? r[3] : v, o = document.createElement(`canvas`);
+        o.width = a, o.height = i;
+        let s = o.getContext(`2d`);
+        if (!s) return null;
+        let c = document.createElement(`canvas`);
+        c.width = e.width, c.height = e.height;
+        let l = c.getContext(`2d`);
+        if (!l) return null;
+        l.putImageData(e, 0, 0), s.drawImage(c, 0, 0, a, i);
+        let u = s.getImageData(0, 0, a, i), d = new Float32Array(a * i * 3);
+        for(let e = 0; e < a * i; e++)d[e] = u.data[e * 4] / 255, d[e + a * i] = u.data[e * 4 + 1] / 255, d[e + a * i * 2] = u.data[e * 4 + 2] / 255;
+        let f = new (await (D())).Tensor(`float32`, d, [
+            1,
+            3,
+            i,
+            a
+        ]), p = await t.run({
+            [n]: f
+        }), m = p.output0 ?? p[t.outputNames[0]] ?? Object.values(p)[0], h = p.output1 ?? p[t.outputNames[1]] ?? Object.values(p)[1];
+        if (!m || !h) return null;
+        let g = me(m).sort((e, t)=>{
+            let n = +(e.classIndex === b);
+            return +(t.classIndex === b) - n || t.score - e.score;
+        }), _ = g.find((e)=>e.classIndex === b) ?? g[0];
+        if (!_) return null;
+        let y = he(_, h);
+        return y ? await k({
+            type: `traceMask`,
+            id: `m${re++}`,
+            width: y.width,
+            height: y.height,
+            maskData: y.data
+        }) : null;
+    }
+    async function _e(e) {
+        return await k({
+            type: `segment`,
+            id: `s${re++}`,
+            imageData: e
+        });
+    }
+    async function j() {
+        ie() && await O().catch(()=>void 0);
+    }
+    async function ve(e) {
+        let t = ae(e), n = null, r = await ge(t).catch((e)=>(n = e instanceof Error ? e : Error(String(e)), null));
+        if (r) return {
+            ...r,
+            source: `onnx`
+        };
+        try {
+            return {
+                ...await _e(t),
+                source: `fallback`
+            };
+        } catch (e) {
+            if (n) {
+                let t = e instanceof Error ? e.message : String(e);
+                throw Error(`ONNX runtime failed: ${n.message}. Fallback failed: ${t}`);
+            }
+            throw e;
+        }
+    }
+    var M = 0, N = 1, P = 2, F = 3;
+    function I(e, t, n) {
+        return e * .299 + t * .587 + n * .114;
+    }
+    function ye(e) {
+        return `#` + e.map((e)=>Math.round(t(e, 0, 255)).toString(16).padStart(2, `0`)).join(``);
+    }
+    function L(e, t, n) {
+        return [
+            e[0] + (t[0] - e[0]) * n,
+            e[1] + (t[1] - e[1]) * n,
+            e[2] + (t[2] - e[2]) * n
+        ];
+    }
+    function be(e, t) {
+        return L(e, [
+            35,
+            30,
+            27
+        ], t);
+    }
+    function R(e, n, r, i, a) {
+        let o = Math.round(t(i, 0, n - 1));
+        return e[Math.round(t(a, 0, r - 1)) * n + o];
+    }
+    function xe(e, t, n = !0) {
+        let r = new Float32Array(e.width * e.height), i = 255, a = 0;
+        for(let o = 0; o < r.length; o++){
+            if (t) {
+                let i = t.data[o] >= 127;
+                if (n ? !i : i) {
+                    r[o] = n ? 255 : I(e.data[o * 4], e.data[o * 4 + 1], e.data[o * 4 + 2]);
+                    continue;
+                }
+            }
+            let s = o * 4, c = I(e.data[s], e.data[s + 1], e.data[s + 2]);
+            r[o] = c, i = Math.min(i, c), a = Math.max(a, c);
+        }
+        let o = a - i;
+        if (o < 8) return r;
+        for(let e = 0; e < r.length; e++){
+            if (t) {
+                let r = t.data[e] >= 127;
+                if (n ? !r : r) continue;
+            }
+            r[e] = (r[e] - i) / o * 255;
+        }
+        return r;
+    }
+    function Se(e) {
+        return e >= 192 ? M : e >= 128 ? N : e >= 64 ? P : F;
+    }
+    function Ce(e, t, n, r, i, a, o) {
+        let s = 0, c = 0, l = 0, u = 0, d = 0, f = 0, p = 0, m = 0;
+        for(let h = i; h < i + a; h += 2)if (!(h < 0 || h >= n.height)) for(let i = r; i < r + a; i += 2){
+            if (i < 0 || i >= n.width) continue;
+            c++;
+            let r = h * n.width + i, a = n.data[r] >= 127;
+            if (o === `foreground` ? !a : a) continue;
+            s++, l += e[r], u += R(e, n.width, n.height, i + 1, h) - R(e, n.width, n.height, i - 1, h), d += R(e, n.width, n.height, i, h + 1) - R(e, n.width, n.height, i, h - 1);
+            let g = r * 4;
+            f += t.data[g], p += t.data[g + 1], m += t.data[g + 2];
+        }
+        let h = o === `foreground` ? .28 : .52;
+        if (s === 0 || s / Math.max(1, c) < h) return null;
+        let g = Math.hypot(u, d), _ = (Math.floor(r / a) + Math.floor(i / a)) % 2 == 0 ? Math.PI / 6 : Math.PI / 3, v = l / s;
+        return {
+            center: {
+                x: r + a * .5,
+                y: i + a * .5
+            },
+            tone: Se(v),
+            angle: g > 12 ? Math.atan2(d, u) : _,
+            darkness: 1 - v / 255,
+            cellSize: a,
+            gradientStrength: g / Math.max(1, s),
+            color: {
+                rgb: [
+                    f / s,
+                    p / s,
+                    m / s
+                ],
+                luma: I(f / s, p / s, m / s)
+            }
+        };
+    }
+    function z(e, t, n, r, i, a, o) {
+        let s = Math.cos(t) * n * .5, c = Math.sin(t) * n * .5, l = Math.cos(t + Math.PI / 2) * r, u = Math.sin(t + Math.PI / 2) * r;
+        return {
+            start: {
+                x: e.x - s + l,
+                y: e.y - c + u
+            },
+            end: {
+                x: e.x + s + l,
+                y: e.y + c + u
+            },
+            width: i,
+            alpha: a,
+            color: o
+        };
+    }
+    function we(e, t, n = !1) {
+        let r = n ? .58 : .32, i = n ? .07 : .08 + t * .07;
+        return ye(be(L(e, [
+            255,
+            250,
+            244
+        ], r), i));
+    }
+    function Te(e, n, r, a, o, s) {
+        let c = Math.round(t(15 - o * 5, 8, 14)), l = [];
+        for(let t = Math.floor(a.y); t < a.y + a.height; t += c)for(let u = Math.floor(a.x); u < a.x + a.width; u += c){
+            let a = Ce(e, n, r, u, t, c, `foreground`);
+            if (!a || a.tone === M) continue;
+            let d = a.center.x * .17 + a.center.y * .31, f = a.angle + (i(d) - .5) * (Math.PI / 36), p = a.cellSize * (.72 + o * .16) * (.8 + i(d + 13) * .4), m = Math.max(1.8, s * 1.25), h = we(a.color.rgb, a.darkness);
+            if (a.tone === N) {
+                l.push(z(a.center, f, p, 0, s * .85, .24 + a.darkness * .12, h));
+                continue;
+            }
+            if (a.tone === P) {
+                l.push(z(a.center, f, p, -m * .45, s * .9, .32 + a.darkness * .12, h), z(a.center, f, p, m * .45, s * .9, .32 + a.darkness * .12, h));
+                continue;
+            }
+            l.push(z(a.center, f, p, -m, s * .95, .4 + a.darkness * .1, h), z(a.center, f, p, 0, s * .95, .4 + a.darkness * .1, h), z(a.center, f, p, m, s * .95, .4 + a.darkness * .1, h), z(a.center, f + Math.PI / 2, p * .9, -m * .35, s * .82, .28 + a.darkness * .1, h), z(a.center, f + Math.PI / 2, p * .9, m * .35, s * .82, .28 + a.darkness * .1, h));
+        }
+        return l;
+    }
+    function Ee(e, n, r, a, o) {
+        let s = Math.round(t(17 - a * 3.8, 10, 17)), c = [];
+        for(let t = 0; t < r.height; t += s)for(let a = 0; a < r.width; a += s){
+            let l = Ce(e, n, r, a, t, s, `background`);
+            if (!l || l.tone === M && l.darkness < .025 && l.gradientStrength < 6) continue;
+            let u = l.center.x * .11 + l.center.y * .07 + 13, d = l.angle + (i(u) - .5) * (Math.PI / 28), f = l.cellSize * (.72 + i(u + 3) * .34), p = we(l.color.rgb, l.darkness, !0), m = l.tone === F ? .18 : l.tone === P ? .135 : .085;
+            c.push(z(l.center, d, f, 0, Math.max(.75, o * .68), m + l.darkness * .06 + Math.min(.05, l.gradientStrength / 180), p)), (l.tone >= N || l.gradientStrength > 12) && c.push(z(l.center, d + Math.PI / 2, f * .74, (i(u + 8) - .5) * Math.max(1.2, o), Math.max(.68, o * .56), .06 + l.darkness * .04, p)), (l.tone >= P || l.gradientStrength > 20) && c.push(z(l.center, d, f * .82, (i(u + 21) - .5) * Math.max(1.5, o * 1.25), Math.max(.62, o * .48), .045 + l.darkness * .03, p));
+        }
+        return c;
+    }
+    function De(e, n, r, i, a) {
+        let o = Math.round(t(15 - i * 5, 8, 14)), s = Math.max(6, o - 2), c = [];
+        for(let i = Math.floor(r.y); i < r.y + r.height; i += s)for(let l = Math.floor(r.x); l < r.x + r.width; l += s){
+            let r = Math.round(t(l, 0, n.width - 1)), s = Math.round(t(i, 0, n.height - 1));
+            if (n.data[s * n.width + r] < 127) continue;
+            let u = R(e, n.width, n.height, r + 1, s) - R(e, n.width, n.height, r - 1, s), d = R(e, n.width, n.height, r, s + 1) - R(e, n.width, n.height, r, s - 1), f = Math.hypot(u, d);
+            if (f < 56) continue;
+            let p = Math.atan2(d, u) + Math.PI / 2, m = t(o * (.75 + f / 180), o * .7, o * 1.5);
+            c.push(z({
+                x: r,
+                y: s
+            }, p, m, 0, a * .72, .34 + Math.min(.18, f / 255), `#221d19`));
+        }
+        return c;
+    }
+    function Oe(e) {
+        return r(e, 4).map((e, t)=>({
+                x: e.x + (i(t * .93 + 11) - .5) * 1.1,
+                y: e.y + (i(t * 1.21 + 29) - .5) * 1.1
+            }));
+    }
+    function ke(e, r, i, a, o, s) {
+        let c = t(Number.isFinite(o) ? o : .9, .45, 1.6), l = t(Number.isFinite(s) ? s : 2.1, .8, 4), u = xe(i, a, !0), d = xe(i), f = Oe(e);
+        return {
+            outline: f,
+            bbox: n(f),
+            backgroundStrokes: Ee(d, i, a, c, l),
+            strokes: Te(u, i, a, r, c, l),
+            edges: De(u, a, r, c, l),
+            palette: {
+                background: `#fdfaf5`,
+                stroke: `#4b4138`,
+                edge: `#2a231e`,
+                outline: `#181513`
+            },
+            outlineWidth: t(l + .7, 2, 3.2),
+            strokeSize: l,
+            density: c
+        };
+    }
+    var Ae = 1024, B = 640, je = 120, V = null, H = !1, U = null, W = null, G = null, K = null, q = null;
+    function J(e) {
+        return document.getElementById(e);
+    }
+    function Me(e, t) {
+        if (e <= Ae) return {
+            width: e,
+            height: t
+        };
+        let n = Ae / e;
+        return {
+            width: Math.round(e * n),
+            height: Math.round(t * n)
+        };
+    }
+    function Y(e, t, n) {
+        return Math.max(t, Math.min(n, e));
+    }
+    function Ne() {
+        return {
+            stage: J(`cat-sketch-crop-stage`),
+            box: J(`cat-sketch-crop-box`),
+            size: J(`cat-sketch-crop-size`)
+        };
+    }
+    function Pe() {
+        let e = J(`cat-sketch-original`), t = e.clientWidth || e.width || 1, n = e.clientHeight || e.height || 1;
+        return {
+            scaleX: t / Math.max(1, e.width),
+            scaleY: n / Math.max(1, e.height)
+        };
+    }
+    function Fe(e) {
+        let t = Math.max(je, Math.round(Math.min(e.width, e.height) * .7));
+        return {
+            x: Math.round((e.width - t) / 2),
+            y: Math.round((e.height - t) / 2),
+            size: t
+        };
+    }
+    function Ie(e, t) {
+        let n = Math.min(t.width, t.height), r = Y(e.size, je, n);
+        return {
+            x: Y(e.x, 0, t.width - r),
+            y: Y(e.y, 0, t.height - r),
+            size: r
+        };
+    }
+    function X() {
+        if (!V || !U) return;
+        let { box: e, size: t } = Ne(), { scaleX: n, scaleY: r } = Pe(), i = U.x * n, a = U.y * r, o = U.size * n, s = U.size * r;
+        e.style.display = ``, e.style.left = `${i}px`, e.style.top = `${a}px`, e.style.width = `${o}px`, e.style.height = `${s}px`, t.textContent = `${U.size}px -> ${B}px`;
+    }
+    async function Le(e) {
+        let t = await createImageBitmap(e), n = Me(t.width, t.height);
+        if (n.width === t.width) return t;
+        let r = document.createElement(`canvas`);
+        r.width = n.width, r.height = n.height;
+        let i = r.getContext(`2d`);
+        if (!i) throw t.close(), Error(`Canvas 2D context is unavailable`);
+        return i.drawImage(t, 0, 0, n.width, n.height), t.close(), await createImageBitmap(r);
+    }
+    function Re(e) {
+        let t = J(`cat-sketch-original`), n = t.getContext(`2d`);
+        n && (t.width = e.width, t.height = e.height, n.clearRect(0, 0, t.width, t.height), n.drawImage(e, 0, 0), X());
+    }
+    function Z() {
+        let e = J(`cat-sketch-result`), t = e.getContext(`2d`);
+        t && (e.width = 900, e.height = 900, t.clearRect(0, 0, e.width, e.height), t.fillStyle = `#fffdf9`, t.fillRect(0, 0, e.width, e.height), t.strokeStyle = `rgba(23, 23, 23, 0.12)`, t.setLineDash([
+            8,
+            8
+        ]), t.strokeRect(28, 28, e.width - 56, e.height - 56), t.setLineDash([]), t.fillStyle = `#6b7280`, t.font = `600 28px Inter, system-ui, sans-serif`, t.textAlign = `center`, t.fillText(`Bản phác họa sẽ xuất hiện ở đây`, e.width / 2, e.height / 2 - 10), t.font = `400 18px Inter, system-ui, sans-serif`, t.fillText(`Tải ảnh lên, khoanh vùng vuông, rồi bấm Tạo phác họa`, e.width / 2, e.height / 2 + 28), H = !1, J(`cat-sketch-download`).disabled = !0);
+    }
+    var Q = null;
+    function ze() {
+        let e = J(`cat-sketch-check`);
+        Q && clearTimeout(Q), e.classList.add(`is-visible`), Q = setTimeout(()=>e.classList.remove(`is-visible`), 2500);
+    }
+    function Be() {
+        J(`cat-sketch-workspace`).style.display = ``;
+    }
+    function $(e) {
+        J(`cat-sketch-generate`).disabled = e || !V || !U, J(`cat-sketch-download`).disabled = e || !H, J(`cat-sketch-file-input`).disabled = e, J(`cat-sketch-density`).disabled = e, J(`cat-sketch-stroke-size`).disabled = e;
+    }
+    async function Ve(e) {
+        if (e.type.startsWith(`image/`)) {
+            $(!0);
+            try {
+                V?.bitmap.close();
+                let t = await Le(e);
+                V = {
+                    file: e,
+                    bitmap: t
+                }, U = Fe(t), Re(t), Z(), Be(), J(`cat-sketch-generate`).disabled = !1;
+                let n = `${e.name} • ${t.width} x ${t.height}px`;
+                J(`cat-sketch-meta`).textContent = n, X();
+            } catch (e) {
+                console.error(e);
+            } finally{
+                $(!1);
+            }
+        }
+    }
+    function He(e, t) {
+        let n = document.createElement(`canvas`);
+        n.width = B, n.height = B;
+        let r = n.getContext(`2d`);
+        if (!r) throw Error(`Canvas 2D context is unavailable`);
+        return r.imageSmoothingEnabled = !0, r.imageSmoothingQuality = `high`, r.drawImage(e, t.x, t.y, t.size, t.size, 0, 0, B, B), createImageBitmap(n);
+    }
+    function Ue(e) {
+        let t = J(`cat-sketch-result`), n = Math.max(e.width, e.height), r = 780 / Math.max(1, n);
+        return t.width = Math.max(640, Math.round(e.width * r + 120)), t.height = Math.max(680, Math.round(e.height * r + 140)), t;
+    }
+    function We(e, t, n) {
+        return {
+            ...e,
+            outline: e.outline.map((e)=>({
+                    x: e.x + t,
+                    y: e.y + n
+                })),
+            strokes: e.strokes.map((e)=>({
+                    ...e,
+                    start: {
+                        x: e.start.x + t,
+                        y: e.start.y + n
+                    },
+                    end: {
+                        x: e.end.x + t,
+                        y: e.end.y + n
+                    }
+                })),
+            edges: e.edges.map((e)=>({
+                    ...e,
+                    start: {
+                        x: e.start.x + t,
+                        y: e.start.y + n
+                    },
+                    end: {
+                        x: e.end.x + t,
+                        y: e.end.y + n
+                    }
+                })),
+            bbox: {
+                ...e.bbox,
+                x: e.bbox.x + t,
+                y: e.bbox.y + n
+            }
+        };
+    }
+    async function Ge() {
+        if (!V || !U) return;
+        let e = J(`cat-sketch-density`), t = J(`cat-sketch-stroke-size`), n = Number(e.value), r = Number(t.value);
+        $(!0), Z();
+        let i = null;
+        try {
+            await j(), i = await He(V.bitmap, U);
+            let e = await ve(i), t = Ue(i), a = document.createElement(`canvas`);
+            a.width = i.width, a.height = i.height;
+            let o = a.getContext(`2d`);
+            if (!o) throw Error(`Canvas 2D context is unavailable`);
+            o.drawImage(i, 0, 0);
+            let s = o.getImageData(0, 0, a.width, a.height);
+            l(t, We(ke(e.contour, e.bbox, s, e.mask, n, r), (t.width - i.width) / 2, (t.height - i.height) / 2 + 12)), H = !0, J(`cat-sketch-download`).disabled = !1, ze();
+        } catch (e) {
+            console.error(e);
+        } finally{
+            i?.close(), $(!1);
+        }
+    }
+    function Ke() {
+        if (!H) return;
+        let e = J(`cat-sketch-result`), t = document.createElement(`a`);
+        t.href = e.toDataURL(`image/png`), t.download = `cat-sketch-chitiet.png`, t.click();
+    }
+    function qe(e) {
+        if (!V || !U) return;
+        let t = e.target.closest(`[data-crop-handle]`), n = e.target.closest(`#cat-sketch-crop-box`);
+        !t && !n || (W = t ? `resize` : `move`, G = {
+            x: e.clientX,
+            y: e.clientY
+        }, K = {
+            ...U
+        }, e.currentTarget.setPointerCapture(e.pointerId), e.preventDefault());
+    }
+    function Je(e) {
+        if (!V || !U || !W || !G || !K) return;
+        let { scaleX: t, scaleY: n } = Pe(), r = (e.clientX - G.x) / Math.max(t, 1e-4), i = (e.clientY - G.y) / Math.max(n, 1e-4);
+        if (W === `move`) U = Ie({
+            x: Math.round(K.x + r),
+            y: Math.round(K.y + i),
+            size: K.size
+        }, V.bitmap);
+        else {
+            let e = Math.round(K.size + Math.max(r, i));
+            U = Ie({
+                x: K.x,
+                y: K.y,
+                size: e
+            }, V.bitmap);
+        }
+        X();
+    }
+    function Ye(e) {
+        if (e) try {
+            e.currentTarget.releasePointerCapture(e.pointerId);
+        } catch  {}
+        W = null, G = null, K = null;
+    }
+    function Xe() {
+        let { stage: e } = Ne();
+        e.addEventListener(`pointerdown`, qe), e.addEventListener(`pointermove`, Je), e.addEventListener(`pointerup`, Ye), e.addEventListener(`pointercancel`, Ye), q?.disconnect(), q = new ResizeObserver(()=>X()), q.observe(e);
+    }
+    function Ze() {
+        let e = J(`cat-sketch-file-input`), t = J(`cat-sketch-dropzone`), n = J(`cat-sketch-select`), r = J(`cat-sketch-generate`), i = J(`cat-sketch-download`), a = J(`cat-sketch-density`), o = J(`cat-sketch-density-value`), s = J(`cat-sketch-stroke-size`), c = J(`cat-sketch-stroke-size-value`);
+        Z(), Xe(), n.addEventListener(`click`, ()=>e.click()), r.addEventListener(`click`, ()=>{
+            Ge();
+        }), i.addEventListener(`click`, Ke), e.addEventListener(`change`, ()=>{
+            let [t] = Array.from(e.files ?? []);
+            t && (Ve(t), e.value = ``);
+        }), a.addEventListener(`input`, ()=>{
+            o.textContent = Number(a.value).toFixed(2);
+        }), s.addEventListener(`input`, ()=>{
+            c.textContent = Number(s.value).toFixed(2);
+        }), t.addEventListener(`dragover`, (e)=>{
+            e.preventDefault(), t.classList.add(`is-dragover`);
+        }), t.addEventListener(`dragleave`, ()=>{
+            t.classList.remove(`is-dragover`);
+        }), t.addEventListener(`drop`, (e)=>{
+            e.preventDefault(), t.classList.remove(`is-dragover`);
+            let [n] = Array.from(e.dataTransfer?.files ?? []);
+            n && Ve(n);
+        }), j();
+    }
+    document.addEventListener(`DOMContentLoaded`, ()=>Ze());
+})();

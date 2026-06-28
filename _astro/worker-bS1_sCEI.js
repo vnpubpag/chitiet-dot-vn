@@ -1,0 +1,251 @@
+(async ()=>{
+    let e = null, t = null, n = null, r = null, i = null, a = null;
+    async function o(t) {
+        return e ||= await import(`./png-BoVbvzze.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), e.decode(t);
+    }
+    async function s(e) {
+        return t ||= await import(`./jpeg-ClNi3Hif.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), t.decode(e);
+    }
+    async function c(t) {
+        return e ||= await import(`./png-BoVbvzze.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), e.encode(t);
+    }
+    async function l(e, n) {
+        return t ||= await import(`./jpeg-ClNi3Hif.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), t.encode(e, n);
+    }
+    async function u(e, t) {
+        return n ||= await import(`./webp-Dzo1PfBE.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), n.encode(e, {
+            quality: t
+        });
+    }
+    async function d(e, t) {
+        return r ||= await import(`./avif-CYuuL7gL.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), r.encode(e, {
+            quality: t
+        });
+    }
+    async function f(e, t) {
+        return i ||= await import(`./oxipng-hU66lTet.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        }), i.optimise(e, {
+            level: t
+        });
+    }
+    async function p(e, t, n, r) {
+        a ||= await import(`./imagequant-ClQm-rVx.js`).then(async (m)=>{
+            await m.__tla;
+            return m;
+        });
+        let { Imagequant: i, ImagequantImage: o } = a, s = new o(new Uint8Array(e.data.buffer), e.width, e.height, 0), c = new i;
+        c.set_quality(t, n), c.set_speed(r);
+        let l = c.process(s);
+        return l.buffer.slice(l.byteOffset, l.byteOffset + l.byteLength);
+    }
+    const m = {
+        balanced: [
+            82,
+            76,
+            70,
+            64
+        ],
+        smaller: [
+            68,
+            62,
+            55,
+            48
+        ],
+        maximum: [
+            50,
+            42,
+            35,
+            28
+        ]
+    }, h = {
+        balanced: 2,
+        smaller: 3,
+        maximum: 4
+    }, g = {
+        balanced: {
+            min: 65,
+            target: 80,
+            speed: 3
+        },
+        smaller: {
+            min: 45,
+            target: 65,
+            speed: 3
+        },
+        maximum: {
+            min: 20,
+            target: 45,
+            speed: 1
+        }
+    }, _ = {
+        balanced: 80,
+        smaller: 70,
+        maximum: 60
+    }, v = {
+        balanced: 50,
+        smaller: 40,
+        maximum: 30
+    };
+    async function y(e, t, n, r) {
+        let i = e.byteLength;
+        r(5, `Đang đọc ảnh...`);
+        let a = t === `image/png` ? await o(e) : await s(e);
+        return r(10, `Đã đọc ảnh xong`), n.mode === `reduce-size` ? b(a, t, n, i, e, r) : x(a, n, i, r);
+    }
+    async function b(e, t, n, r, i, a) {
+        let o = [];
+        if (t === `image/png`) {
+            let t;
+            try {
+                a(15, `Đang giảm màu PNG...`);
+                let r = g[n.level], i = await p(e, r.min, r.target, r.speed);
+                a(55, `Đang tối ưu PNG...`);
+                let o = h[n.level];
+                t = await f(i, o);
+            } catch  {
+                a(30, `Đang nén PNG...`);
+                let r = await c(e);
+                a(60, `Đang tối ưu PNG...`);
+                let i = h[n.level];
+                t = await f(r, i);
+            }
+            o.push({
+                format: `png`,
+                buffer: t,
+                size: t.byteLength
+            }), a(90, `Đã nén PNG xong`);
+        } else {
+            let t = m[n.level], s = null, c = r;
+            for(let n = 0; n < t.length; n++){
+                let i = t[n];
+                a(15 + Math.round((n + 1) / t.length * 70), `Đang thử chất lượng ${i}...`);
+                let o = await l(e, {
+                    quality: i,
+                    progressive: !0,
+                    optimize_coding: !0,
+                    trellis_multipass: !0,
+                    trellis_opt_zero: !0,
+                    trellis_opt_table: !0,
+                    trellis_loops: 1,
+                    auto_subsample: !0,
+                    chroma_subsample: 2
+                });
+                if (o.byteLength < c && (s = o, c = o.byteLength, (r - c) / r > .35)) {
+                    a(85, `Đã đạt mức nén tốt, dừng sớm`);
+                    break;
+                }
+            }
+            s ? o.push({
+                format: `jpeg`,
+                buffer: s,
+                size: c
+            }) : o.push({
+                format: `jpeg`,
+                buffer: i,
+                size: r
+            }), a(90, `Đã nén JPEG xong`);
+        }
+        a(100, `Hoàn tất!`);
+        let s = o[0];
+        return {
+            originalSize: r,
+            results: o,
+            bestFormat: s.format,
+            bestBuffer: s.buffer,
+            bestSize: s.size
+        };
+    }
+    async function x(e, t, n, r) {
+        let i = [], { targetFormat: a, level: o } = t;
+        if (a === `webp` || a === `auto`) try {
+            r(20, `Đang tạo WebP...`);
+            let t = _[o], n = await u(e, t);
+            i.push({
+                format: `webp`,
+                buffer: n,
+                size: n.byteLength
+            }), r(a === `auto` ? 45 : 90, `Đã tạo WebP xong`);
+        } catch  {
+            r(a === `auto` ? 45 : 90, `WebP không khả dụng, bỏ qua...`);
+        }
+        if (a === `avif` || a === `auto`) try {
+            r(a === `auto` ? 50 : 20, `Đang tạo AVIF...`);
+            let t = v[o], n = await d(e, t);
+            i.push({
+                format: `avif`,
+                buffer: n,
+                size: n.byteLength
+            }), r(90, `Đã tạo AVIF xong`);
+        } catch  {
+            r(90, `AVIF không khả dụng, bỏ qua...`);
+        }
+        if (i.length === 0) throw Error(`Không thể tạo định dạng nào`);
+        r(95, `Đang so sánh kết quả...`);
+        let s = i[0];
+        for (let e of i)e.size < s.size && (s = e);
+        return r(100, `Hoàn tất!`), {
+            originalSize: n,
+            results: i,
+            bestFormat: s.format,
+            bestBuffer: s.buffer,
+            bestSize: s.size
+        };
+    }
+    function S(e, t) {
+        t ? self.postMessage(e, t) : self.postMessage(e);
+    }
+    self.onmessage = async (e)=>{
+        let t = e.data;
+        if (t.type === `init`) {
+            S({
+                type: `ready`
+            });
+            return;
+        }
+        if (t.type === `compress`) try {
+            let e = await y(t.buffer, t.mimeType, t.options, (e, n)=>{
+                S({
+                    type: `progress`,
+                    id: t.id,
+                    pct: e,
+                    status: n
+                });
+            }), n = e.results.map((e)=>e.buffer);
+            S({
+                type: `result`,
+                id: t.id,
+                originalSize: e.originalSize,
+                results: e.results,
+                bestFormat: e.bestFormat,
+                bestBuffer: e.bestBuffer,
+                bestSize: e.bestSize
+            }, n);
+        } catch (e) {
+            S({
+                type: `error`,
+                id: t.id,
+                message: e?.message || `Lỗi không xác định`
+            });
+        }
+    };
+})();
