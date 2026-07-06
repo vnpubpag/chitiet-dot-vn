@@ -203,17 +203,23 @@ function buildRectContour(bounds) {
 }
 
 function traceMask(mask) {
-    var clean = mask.clone();
-    var kernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, new cv.Size(7, 7));
+    // Mask vào có thể là mask "mềm" (0-255) từ decode ONNX — làm mượt bằng
+    // GaussianBlur trước rồi mới binarize để biên không răng cưa.
+    var clean = new cv.Mat();
+    var openKernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, new cv.Size(5, 5));
+    var closeKernel = cv.getStructuringElement(cv.MORPH_ELLIPSE, new cv.Size(9, 9));
     var contours = new cv.MatVector();
     var hierarchy = new cv.Mat();
     var resultMask = cv.Mat.zeros(mask.rows, mask.cols, cv.CV_8UC1);
     var bestContour = null;
     var bestArea = 0;
+    var bestIndex = -1;
 
     try {
-        cv.morphologyEx(clean, clean, cv.MORPH_CLOSE, kernel);
-        cv.morphologyEx(clean, clean, cv.MORPH_OPEN, kernel);
+        cv.GaussianBlur(mask, clean, new cv.Size(5, 5), 0);
+        cv.threshold(clean, clean, 127, 255, cv.THRESH_BINARY);
+        cv.morphologyEx(clean, clean, cv.MORPH_OPEN, openKernel);
+        cv.morphologyEx(clean, clean, cv.MORPH_CLOSE, closeKernel);
 
         cv.findContours(
             clean,
@@ -230,6 +236,7 @@ function traceMask(mask) {
                 if (bestContour) bestContour.delete();
                 bestContour = contour.clone();
                 bestArea = area;
+                bestIndex = i;
             }
             contour.delete();
         }
@@ -266,9 +273,13 @@ function traceMask(mask) {
         contourVector.push_back(bestContour);
         cv.drawContours(resultMask, contourVector, 0, new cv.Scalar(255), -1);
 
+        // Giữ thêm các component gần chạm component lớn nhất (đuôi/chân bị
+        // mask tách rời) — chỉ vào mask hatching, outline vẫn theo contour chính.
+        attachTouchingComponents(resultMask, contours, bestIndex, bestArea);
+
         var perimeter = cv.arcLength(bestContour, true);
         var approx = new cv.Mat();
-        cv.approxPolyDP(bestContour, approx, perimeter * 0.004, true);
+        cv.approxPolyDP(bestContour, approx, perimeter * 0.002, true);
 
         var contourPoints = [];
         var sourceContour = approx.rows >= 12 ? approx : bestContour;
@@ -279,7 +290,8 @@ function traceMask(mask) {
             });
         }
 
-        var bbox = cv.boundingRect(bestContour);
+        // bbox theo mask cuối (gồm cả component gắn thêm) để hatching phủ đủ.
+        var bbox = findMaskBounds(resultMask) || cv.boundingRect(bestContour);
         if (contourPoints.length < 4) {
             contourPoints = buildRectContour(bbox);
         }
@@ -304,11 +316,51 @@ function traceMask(mask) {
         };
     } finally {
         clean.delete();
-        kernel.delete();
+        openKernel.delete();
+        closeKernel.delete();
         contours.delete();
         hierarchy.delete();
         resultMask.delete();
         if (bestContour) bestContour.delete();
+    }
+}
+
+function attachTouchingComponents(resultMask, contours, bestIndex, bestArea) {
+    if (contours.size() <= 1) return;
+
+    var dilateKernel = cv.getStructuringElement(
+        cv.MORPH_ELLIPSE,
+        new cv.Size(13, 13),
+    );
+    var dilated = new cv.Mat();
+    var componentMask = null;
+    var overlap = null;
+
+    try {
+        cv.dilate(resultMask, dilated, dilateKernel);
+        componentMask = cv.Mat.zeros(resultMask.rows, resultMask.cols, cv.CV_8UC1);
+        overlap = new cv.Mat();
+
+        for (var i = 0; i < contours.size(); i++) {
+            if (i === bestIndex) continue;
+
+            var contour = contours.get(i);
+            var area = cv.contourArea(contour);
+            contour.delete();
+            if (area < bestArea * 0.02) continue;
+
+            componentMask.setTo(new cv.Scalar(0));
+            cv.drawContours(componentMask, contours, i, new cv.Scalar(255), -1);
+            cv.bitwise_and(componentMask, dilated, overlap);
+            if (cv.countNonZero(overlap) > 0) {
+                cv.bitwise_or(resultMask, componentMask, resultMask);
+            }
+        }
+    } finally {
+        dilateKernel.delete();
+        dilated.delete();
+        if (componentMask) componentMask.delete();
+        if (overlap) overlap.delete();
     }
 }
 
