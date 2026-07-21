@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Cloud Guardian</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%81%EF%B8%8F%3C/text%3E%3C/svg%3E"
+    />
+    <style>
+      /* Font self-host - KHONG dung Google Fonts CDN.
+         Patch boi scripts/sync-runtime-bundle.ps1 (xem .ai/tasks/TASK-010.md). */
+      @font-face {
+        font-family: 'Fredoka';
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url('./fonts/fredoka-latin.woff2') format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+          U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+          U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: 'Fredoka';
+        font-style: normal;
+        font-weight: 400 700;
+        font-display: swap;
+        src: url('./fonts/fredoka-latin-ext.woff2') format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+          U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+          U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F,
+          U+A720-A7FF;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: linear-gradient(180deg, #aee7ff 0%, #d8f4e0 100%);
+      }
+      #game {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      canvas {
+        border-radius: 8px;
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-Cw9mBcSY.js"></script>
+  </head>
+  <body>
+    <div id="game"></div>
+  </body>
+</html>
