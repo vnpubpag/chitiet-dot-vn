@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Cun con - asset tu tao (CC0). -->
+  <path data-region="tail" data-name="Đuôi" fill="#d9a066"
+    d="M746 730 C878 690 906 590 866 566 C834 548 810 596 824 620 C790 664 764 668 730 690 Z"/>
+  <ellipse data-region="body" data-name="Thân" fill="#d9a066" cx="512" cy="742" rx="245" ry="178"/>
+  <ellipse data-region="chest" data-name="Ngực" fill="#fff6e8" cx="512" cy="784" rx="135" ry="108"/>
+  <ellipse data-region="paw-l" data-name="Chân trái" fill="#c98d52" cx="400" cy="888" rx="78" ry="45"/>
+  <ellipse data-region="paw-r" data-name="Chân phải" fill="#c98d52" cx="624" cy="888" rx="78" ry="45"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#d9a066" cx="512" cy="392" rx="240" ry="208"/>
+  <circle data-region="spot" data-name="Đốm mắt" fill="#a96f3d" cx="610" cy="358" r="56"/>
+  <ellipse data-region="muzzle" data-name="Mõm" fill="#fff6e8" cx="512" cy="482" rx="125" ry="85"/>
+  <path data-region="ear-l" data-name="Tai trái" fill="#a96f3d"
+    d="M330 262 C268 296 258 420 292 512 C312 566 372 570 390 516 C406 462 396 340 372 268 C360 236 344 244 330 262 Z"/>
+  <path data-region="ear-r" data-name="Tai phải" fill="#a96f3d"
+    d="M694 262 C756 296 766 420 732 512 C712 566 652 570 634 516 C618 462 628 340 652 268 C664 236 680 244 694 262 Z"/>
+
+  <ellipse data-line="1" fill="#40342e" cx="424" cy="362" rx="23" ry="30"/>
+  <ellipse data-line="1" fill="#40342e" cx="600" cy="362" rx="23" ry="30"/>
+  <circle data-line="1" fill="#ffffff" cx="432" cy="352" r="8"/>
+  <circle data-line="1" fill="#ffffff" cx="608" cy="352" r="8"/>
+  <ellipse data-line="1" fill="#40342e" cx="512" cy="452" rx="30" ry="22"/>
+  <path data-line="1" fill="#ff8fa3" stroke="#40342e" stroke-width="7"
+    d="M482 512 C486 552 538 552 542 512 C530 520 494 520 482 512 Z"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M512 474 C512 496 498 506 480 504 M512 474 C512 496 526 506 544 504"/>
+</svg>

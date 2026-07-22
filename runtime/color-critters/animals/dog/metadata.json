@@ -1,0 +1,9 @@
+{
+  "id": "dog",
+  "name": { "vi": "Cún con", "en": "Puppy" },
+  "category": "pets",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#d9a066", "#a96f3d", "#fff6e8", "#c98d52", "#ff8fa3"],
+  "regionCount": 10
+}

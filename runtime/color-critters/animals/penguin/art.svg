@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Chim canh cut - asset tu tao (CC0). -->
+  <ellipse data-region="foot-l" data-name="Chân trái" fill="#ffb703" cx="424" cy="864" rx="74" ry="34"/>
+  <ellipse data-region="foot-r" data-name="Chân phải" fill="#ffb703" cx="600" cy="864" rx="74" ry="34"/>
+  <ellipse data-region="wing-l" data-name="Cánh trái" fill="#3d405b" cx="298" cy="592" rx="70" ry="150" data-rot="18"/>
+  <ellipse data-region="wing-r" data-name="Cánh phải" fill="#3d405b" cx="726" cy="592" rx="70" ry="150" data-rot="-18"/>
+  <ellipse data-region="body" data-name="Thân" fill="#4a4e69" cx="512" cy="548" rx="230" ry="292"/>
+  <ellipse data-region="tummy" data-name="Bụng" fill="#ffffff" cx="512" cy="618" rx="158" ry="204"/>
+  <ellipse data-region="face" data-name="Mặt" fill="#ffffff" cx="512" cy="342" rx="140" ry="100"/>
+  <path data-region="beak" data-name="Mỏ" fill="#ffb703"
+    d="M470 366 L554 366 C562 366 560 380 554 390 C542 410 528 420 512 420 C496 420 482 410 470 390 C464 380 462 366 470 366 Z"/>
+
+  <circle data-line="1" fill="#40342e" cx="458" cy="322" r="20"/>
+  <circle data-line="1" fill="#40342e" cx="566" cy="322" r="20"/>
+  <circle data-line="1" fill="#ffffff" cx="465" cy="315" r="7"/>
+  <circle data-line="1" fill="#ffffff" cx="573" cy="315" r="7"/>
+  <ellipse data-line="1" fill="#ffc2cc" cx="398" cy="380" rx="26" ry="16"/>
+  <ellipse data-line="1" fill="#ffc2cc" cx="626" cy="380" rx="26" ry="16"/>
+</svg>

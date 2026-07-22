@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Buom buom - asset tu tao (CC0). -->
+  <ellipse data-region="wing-up-l" data-name="Cánh trên trái" fill="#8ecae6" cx="326" cy="380" rx="192" ry="172" data-rot="-18"/>
+  <ellipse data-region="wing-up-r" data-name="Cánh trên phải" fill="#8ecae6" cx="698" cy="380" rx="192" ry="172" data-rot="18"/>
+  <ellipse data-region="spot-up-l" data-name="Đốm trái" fill="#ffd166" cx="318" cy="382" rx="84" ry="72" data-rot="-18"/>
+  <ellipse data-region="spot-up-r" data-name="Đốm phải" fill="#ffd166" cx="706" cy="382" rx="84" ry="72" data-rot="18"/>
+  <ellipse data-region="wing-low-l" data-name="Cánh dưới trái" fill="#cdb4db" cx="368" cy="648" rx="142" ry="122" data-rot="14"/>
+  <ellipse data-region="wing-low-r" data-name="Cánh dưới phải" fill="#cdb4db" cx="656" cy="648" rx="142" ry="122" data-rot="-14"/>
+  <circle data-region="spot-low-l" data-name="Đốm dưới trái" fill="#f7d6e8" cx="376" cy="650" r="48"/>
+  <circle data-region="spot-low-r" data-name="Đốm dưới phải" fill="#f7d6e8" cx="648" cy="650" r="48"/>
+  <ellipse data-region="body" data-name="Mình" fill="#95d5b2" cx="512" cy="530" rx="56" ry="182"/>
+  <circle data-region="head" data-name="Đầu" fill="#95d5b2" cx="512" cy="312" r="62"/>
+
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="9"
+    d="M488 262 C462 206 428 184 404 194 M536 262 C562 206 596 184 620 194"/>
+  <circle data-line="1" fill="#40342e" cx="400" cy="190" r="13"/>
+  <circle data-line="1" fill="#40342e" cx="624" cy="190" r="13"/>
+  <circle data-line="1" fill="#40342e" cx="492" cy="302" r="10"/>
+  <circle data-line="1" fill="#40342e" cx="532" cy="302" r="10"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="7"
+    d="M500 330 C506 338 518 338 524 330"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="7"
+    d="M466 452 L558 452 M462 530 L562 530 M466 608 L558 608"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Icon ung dung - tu tao (CC0): giot mau cuoi tren nen kem -->
+  <rect width="512" height="512" rx="112" fill="#fdf6ec"/>
+  <path d="M256 76 C200 168 128 240 128 324 a128 128 0 0 0 256 0 C384 240 312 168 256 76 Z" fill="#f4a259" stroke="#40342e" stroke-width="18" stroke-linejoin="round"/>
+  <circle cx="216" cy="330" r="16" fill="#40342e"/>
+  <circle cx="296" cy="330" r="16" fill="#40342e"/>
+  <path d="M226 374 q30 26 60 0" fill="none" stroke="#40342e" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="180" cy="368" r="14" fill="#ffc2cc"/>
+  <circle cx="332" cy="368" r="14" fill="#ffc2cc"/>
+</svg>

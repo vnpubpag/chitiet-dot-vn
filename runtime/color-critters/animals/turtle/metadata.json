@@ -1,0 +1,9 @@
+{
+  "id": "turtle",
+  "name": { "vi": "Rùa biển", "en": "Turtle" },
+  "category": "sea",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#a7d489", "#8f5b3c", "#6f4428", "#b5764f"],
+  "regionCount": 9
+}

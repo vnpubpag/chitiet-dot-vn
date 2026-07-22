@@ -1,0 +1,9 @@
+{
+  "id": "fox",
+  "name": { "vi": "Cáo nhỏ", "en": "Fox" },
+  "category": "forest",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#ef8354", "#fff6e8", "#d96c3f"],
+  "regionCount": 13
+}

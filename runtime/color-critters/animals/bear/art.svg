@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Gau nau - asset tu tao (CC0). -->
+  <circle data-region="ear-l" data-name="Tai trái" fill="#b07d4f" cx="336" cy="232" r="86"/>
+  <circle data-region="ear-r" data-name="Tai phải" fill="#b07d4f" cx="688" cy="232" r="86"/>
+  <circle data-region="inner-ear-l" data-name="Tai trong trái" fill="#eac89b" cx="336" cy="232" r="45"/>
+  <circle data-region="inner-ear-r" data-name="Tai trong phải" fill="#eac89b" cx="688" cy="232" r="45"/>
+  <ellipse data-region="body" data-name="Thân" fill="#b07d4f" cx="512" cy="756" rx="248" ry="172"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#eac89b" cx="512" cy="792" rx="138" ry="105"/>
+  <ellipse data-region="paw-l" data-name="Chân trái" fill="#9c6b40" cx="396" cy="894" rx="82" ry="48"/>
+  <ellipse data-region="paw-r" data-name="Chân phải" fill="#9c6b40" cx="628" cy="894" rx="82" ry="48"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#b07d4f" cx="512" cy="400" rx="236" ry="206"/>
+  <ellipse data-region="muzzle" data-name="Mõm" fill="#eac89b" cx="512" cy="486" rx="122" ry="86"/>
+
+  <ellipse data-line="1" fill="#40342e" cx="424" cy="378" rx="22" ry="28"/>
+  <ellipse data-line="1" fill="#40342e" cx="600" cy="378" rx="22" ry="28"/>
+  <circle data-line="1" fill="#ffffff" cx="432" cy="369" r="7"/>
+  <circle data-line="1" fill="#ffffff" cx="608" cy="369" r="7"/>
+  <ellipse data-line="1" fill="#40342e" cx="512" cy="458" rx="27" ry="20"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M512 478 L512 500 M512 500 C512 520 498 528 482 524 M512 500 C512 520 526 528 542 524"/>
+  <ellipse data-line="1" fill="#d9a870" cx="376" cy="452" rx="30" ry="18"/>
+  <ellipse data-line="1" fill="#d9a870" cx="648" cy="452" rx="30" ry="18"/>
+</svg>

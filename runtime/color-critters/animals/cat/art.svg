@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Meo con - asset tu tao (CC0). Thu tu ve = painter's order. -->
+  <path data-region="tail" data-name="Đuôi" fill="#f4a259"
+    d="M700 786 C846 800 902 716 884 646 C870 594 804 596 810 646 C814 682 792 724 700 722 Z"/>
+  <ellipse data-region="body" data-name="Thân" fill="#f4a259" cx="512" cy="730" rx="250" ry="185"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#ffe8c9" cx="512" cy="772" rx="140" ry="112"/>
+  <ellipse data-region="paw-l" data-name="Chân trái" fill="#f7b06b" cx="400" cy="882" rx="76" ry="45"/>
+  <ellipse data-region="paw-r" data-name="Chân phải" fill="#f7b06b" cx="624" cy="882" rx="76" ry="45"/>
+  <path data-region="ear-l" data-name="Tai trái" fill="#f4a259"
+    d="M300 310 C288 172 320 138 362 160 C420 190 450 232 460 282 C402 262 340 280 300 310 Z"/>
+  <path data-region="ear-r" data-name="Tai phải" fill="#f4a259"
+    d="M724 310 C736 172 704 138 662 160 C604 190 574 232 564 282 C622 262 684 280 724 310 Z"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#f4a259" cx="512" cy="400" rx="235" ry="205"/>
+  <path data-region="inner-ear-l" data-name="Tai trong trái" fill="#ffb5a7"
+    d="M330 286 C328 212 344 190 370 202 C400 216 420 246 426 272 C392 260 356 268 330 286 Z"/>
+  <path data-region="inner-ear-r" data-name="Tai trong phải" fill="#ffb5a7"
+    d="M694 286 C696 212 680 190 654 202 C624 216 604 246 598 272 C632 260 668 268 694 286 Z"/>
+  <ellipse data-region="muzzle" data-name="Mõm" fill="#fff6e8" cx="512" cy="482" rx="115" ry="78"/>
+
+  <ellipse data-line="1" fill="#ffc2cc" cx="378" cy="448" rx="32" ry="19"/>
+  <ellipse data-line="1" fill="#ffc2cc" cx="646" cy="448" rx="32" ry="19"/>
+  <ellipse data-line="1" fill="#40342e" cx="420" cy="378" rx="24" ry="31"/>
+  <ellipse data-line="1" fill="#40342e" cx="604" cy="378" rx="24" ry="31"/>
+  <circle data-line="1" fill="#ffffff" cx="428" cy="368" r="8"/>
+  <circle data-line="1" fill="#ffffff" cx="612" cy="368" r="8"/>
+  <path data-line="1" fill="#e58a7e" d="M489 452 L535 452 C542 452 540 462 535 467 L518 480 C514 483 510 483 506 480 L489 467 C484 462 482 452 489 452 Z"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M512 480 C512 502 500 510 484 508 M512 480 C512 502 524 510 540 508"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="7"
+    d="M368 468 L282 452 M370 494 L286 506 M656 468 L742 452 M654 494 L738 506"/>
+</svg>

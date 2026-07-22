@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Heo hong - asset tu tao (CC0). -->
+  <path data-region="ear-l" data-name="Tai trái" fill="#f2a0b5"
+    d="M330 254 C318 168 362 138 412 180 C452 214 462 250 456 286 C412 262 362 268 330 254 Z"/>
+  <path data-region="ear-r" data-name="Tai phải" fill="#f2a0b5"
+    d="M694 254 C706 168 662 138 612 180 C572 214 562 250 568 286 C612 262 662 268 694 254 Z"/>
+  <ellipse data-region="body" data-name="Thân" fill="#f7b8c9" cx="512" cy="752" rx="248" ry="168"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#fbd3de" cx="512" cy="790" rx="138" ry="102"/>
+  <ellipse data-region="leg-l" data-name="Chân trái" fill="#f2a0b5" cx="402" cy="892" rx="74" ry="46"/>
+  <ellipse data-region="leg-r" data-name="Chân phải" fill="#f2a0b5" cx="622" cy="892" rx="74" ry="46"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#f7b8c9" cx="512" cy="400" rx="232" ry="200"/>
+  <ellipse data-region="snout" data-name="Mũi heo" fill="#f2a0b5" cx="512" cy="462" rx="88" ry="60"/>
+
+  <ellipse data-line="1" fill="#d4738f" cx="486" cy="462" rx="11" ry="19"/>
+  <ellipse data-line="1" fill="#d4738f" cx="538" cy="462" rx="11" ry="19"/>
+  <ellipse data-line="1" fill="#40342e" cx="414" cy="380" rx="22" ry="29"/>
+  <ellipse data-line="1" fill="#40342e" cx="610" cy="380" rx="22" ry="29"/>
+  <circle data-line="1" fill="#ffffff" cx="422" cy="370" r="7"/>
+  <circle data-line="1" fill="#ffffff" cx="618" cy="370" r="7"/>
+  <ellipse data-line="1" fill="#f78fb0" cx="374" cy="452" rx="30" ry="18"/>
+  <ellipse data-line="1" fill="#f78fb0" cx="650" cy="452" rx="30" ry="18"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M452 546 C480 566 544 566 572 546"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="10"
+    d="M756 726 C806 706 818 664 786 652 C760 644 752 672 774 678"/>
+</svg>

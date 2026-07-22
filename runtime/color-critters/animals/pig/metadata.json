@@ -1,0 +1,9 @@
+{
+  "id": "pig",
+  "name": { "vi": "Heo hồng", "en": "Piglet" },
+  "category": "farm",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#f7b8c9", "#f2a0b5", "#fbd3de", "#d4738f"],
+  "regionCount": 8
+}

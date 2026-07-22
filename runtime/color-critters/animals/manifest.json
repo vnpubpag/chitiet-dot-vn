@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "categories": [
+    { "id": "pets", "name": { "vi": "Thú cưng", "en": "Pets" }, "emoji": "🐱" },
+    { "id": "farm", "name": { "vi": "Nông trại", "en": "Farm" }, "emoji": "🐷" },
+    { "id": "forest", "name": { "vi": "Rừng xanh", "en": "Forest" }, "emoji": "🦊" },
+    { "id": "sea", "name": { "vi": "Biển cả", "en": "Sea" }, "emoji": "🐟" },
+    { "id": "birds", "name": { "vi": "Chim chóc", "en": "Birds" }, "emoji": "🐧" },
+    { "id": "insects", "name": { "vi": "Côn trùng", "en": "Insects" }, "emoji": "🦋" }
+  ],
+  "animals": [
+    { "id": "cat", "name": { "vi": "Mèo con", "en": "Kitten" }, "category": "pets" },
+    { "id": "dog", "name": { "vi": "Cún con", "en": "Puppy" }, "category": "pets" },
+    { "id": "rabbit", "name": { "vi": "Thỏ con", "en": "Bunny" }, "category": "pets" },
+    { "id": "pig", "name": { "vi": "Heo hồng", "en": "Piglet" }, "category": "farm" },
+    { "id": "bear", "name": { "vi": "Gấu nâu", "en": "Bear" }, "category": "forest" },
+    { "id": "fox", "name": { "vi": "Cáo nhỏ", "en": "Fox" }, "category": "forest" },
+    { "id": "lion", "name": { "vi": "Sư tử", "en": "Lion" }, "category": "forest" },
+    { "id": "elephant", "name": { "vi": "Voi con", "en": "Elephant" }, "category": "forest" },
+    { "id": "fish", "name": { "vi": "Cá nhỏ", "en": "Fish" }, "category": "sea" },
+    { "id": "turtle", "name": { "vi": "Rùa biển", "en": "Turtle" }, "category": "sea" },
+    { "id": "penguin", "name": { "vi": "Cánh cụt", "en": "Penguin" }, "category": "birds" },
+    { "id": "butterfly", "name": { "vi": "Bươm bướm", "en": "Butterfly" }, "category": "insects" }
+  ]
+}

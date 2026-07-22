@@ -1,0 +1,9 @@
+{
+  "id": "cat",
+  "name": { "vi": "Mèo con", "en": "Kitten" },
+  "category": "pets",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#f4a259", "#ffe8c9", "#ffb5a7", "#fff6e8", "#f7b06b"],
+  "regionCount": 11
+}

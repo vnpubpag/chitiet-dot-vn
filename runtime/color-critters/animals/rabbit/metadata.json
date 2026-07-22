@@ -1,0 +1,9 @@
+{
+  "id": "rabbit",
+  "name": { "vi": "Thỏ con", "en": "Bunny" },
+  "category": "pets",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#e6dff2", "#ffc2cc", "#ffffff", "#f5f1fb", "#f2a0b5"],
+  "regionCount": 10
+}

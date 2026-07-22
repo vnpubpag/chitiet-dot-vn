@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Voi con - asset tu tao (CC0). -->
+  <ellipse data-region="ear-l" data-name="Tai trái" fill="#a8b6dd" cx="296" cy="400" rx="152" ry="182"/>
+  <ellipse data-region="ear-r" data-name="Tai phải" fill="#a8b6dd" cx="728" cy="400" rx="152" ry="182"/>
+  <ellipse data-region="inner-ear-l" data-name="Tai trong trái" fill="#f2c6d4" cx="300" cy="402" rx="98" ry="128"/>
+  <ellipse data-region="inner-ear-r" data-name="Tai trong phải" fill="#f2c6d4" cx="724" cy="402" rx="98" ry="128"/>
+  <ellipse data-region="body" data-name="Thân" fill="#a8b6dd" cx="512" cy="742" rx="252" ry="178"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#d3dcf5" cx="512" cy="784" rx="140" ry="106"/>
+  <ellipse data-region="leg-l" data-name="Chân trái" fill="#93a3cf" cx="404" cy="892" rx="74" ry="48"/>
+  <ellipse data-region="leg-r" data-name="Chân phải" fill="#93a3cf" cx="620" cy="892" rx="74" ry="48"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#a8b6dd" cx="512" cy="398" rx="212" ry="188"/>
+  <path data-region="trunk" data-name="Vòi" fill="#a8b6dd"
+    d="M478 490 C476 566 468 622 428 662 C406 684 436 716 468 694 C532 650 548 566 546 486 Z"/>
+
+  <ellipse data-line="1" fill="#40342e" cx="430" cy="380" rx="22" ry="29"/>
+  <ellipse data-line="1" fill="#40342e" cx="594" cy="380" rx="22" ry="29"/>
+  <circle data-line="1" fill="#ffffff" cx="438" cy="370" r="7"/>
+  <circle data-line="1" fill="#ffffff" cx="602" cy="370" r="7"/>
+  <ellipse data-line="1" fill="#f2c6d4" cx="386" cy="446" rx="28" ry="17"/>
+  <ellipse data-line="1" fill="#f2c6d4" cx="638" cy="446" rx="28" ry="17"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="7"
+    d="M486 546 L536 546 M482 590 L534 590"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M560 470 C574 486 592 490 608 482"/>
+</svg>

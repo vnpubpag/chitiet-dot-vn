@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Cao nho - asset tu tao (CC0). -->
+  <path data-region="tail" data-name="Đuôi" fill="#ef8354"
+    d="M690 760 C880 770 950 660 920 560 C900 620 850 640 800 630 C830 560 800 520 740 540 C700 556 690 620 710 660 C680 690 660 720 672 748 Z"/>
+  <ellipse data-region="tail-tip" data-name="Chóp đuôi" fill="#fff6e8" cx="872" cy="586" rx="52" ry="44"/>
+  <ellipse data-region="body" data-name="Thân" fill="#ef8354" cx="500" cy="744" rx="235" ry="172"/>
+  <ellipse data-region="chest" data-name="Ngực" fill="#fff6e8" cx="500" cy="782" rx="125" ry="105"/>
+  <ellipse data-region="paw-l" data-name="Chân trái" fill="#d96c3f" cx="398" cy="888" rx="74" ry="44"/>
+  <ellipse data-region="paw-r" data-name="Chân phải" fill="#d96c3f" cx="606" cy="888" rx="74" ry="44"/>
+  <path data-region="ear-l" data-name="Tai trái" fill="#ef8354"
+    d="M300 302 C292 158 330 128 380 168 C430 208 452 252 458 292 C404 268 342 278 300 302 Z"/>
+  <path data-region="ear-r" data-name="Tai phải" fill="#ef8354"
+    d="M724 302 C732 158 694 128 644 168 C594 208 572 252 566 292 C620 268 682 278 724 302 Z"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#ef8354" cx="512" cy="402" rx="232" ry="196"/>
+  <path data-region="inner-ear-l" data-name="Tai trong trái" fill="#fff6e8"
+    d="M332 282 C330 208 348 188 374 202 C402 220 420 248 426 272 C392 258 358 264 332 282 Z"/>
+  <path data-region="inner-ear-r" data-name="Tai trong phải" fill="#fff6e8"
+    d="M692 282 C694 208 676 188 650 202 C622 220 604 248 598 272 C632 258 666 264 692 282 Z"/>
+  <ellipse data-region="cheek-l" data-name="Má trái" fill="#fff6e8" cx="424" cy="478" rx="96" ry="70"/>
+  <ellipse data-region="cheek-r" data-name="Má phải" fill="#fff6e8" cx="600" cy="478" rx="96" ry="70"/>
+
+  <ellipse data-line="1" fill="#40342e" cx="418" cy="386" rx="22" ry="29"/>
+  <ellipse data-line="1" fill="#40342e" cx="606" cy="386" rx="22" ry="29"/>
+  <circle data-line="1" fill="#ffffff" cx="426" cy="376" r="7"/>
+  <circle data-line="1" fill="#ffffff" cx="614" cy="376" r="7"/>
+  <ellipse data-line="1" fill="#40342e" cx="512" cy="470" rx="24" ry="18"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M512 488 C512 508 500 516 486 514 M512 488 C512 508 524 516 538 514"/>
+</svg>

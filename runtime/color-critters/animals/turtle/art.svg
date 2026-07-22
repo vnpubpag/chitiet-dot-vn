@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Rua bien - asset tu tao (CC0). -->
+  <path data-region="tail" data-name="Đuôi" fill="#a7d489"
+    d="M232 596 C186 600 178 634 216 642 C240 646 254 626 248 608 Z"/>
+  <ellipse data-region="leg-l" data-name="Chân trái" fill="#a7d489" cx="376" cy="666" rx="80" ry="50"/>
+  <ellipse data-region="leg-r" data-name="Chân phải" fill="#a7d489" cx="628" cy="666" rx="80" ry="50"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#a7d489" cx="774" cy="440" rx="96" ry="88"/>
+  <path data-region="shell" data-name="Mai" fill="#8f5b3c"
+    d="M222 600 C222 420 352 318 492 318 C632 318 762 420 762 600 Z"/>
+  <rect data-region="shell-rim" data-name="Viền mai" fill="#6f4428" x="202" y="580" width="580" height="72" rx="36"/>
+  <ellipse data-region="shell-c" data-name="Hoa văn giữa" fill="#b5764f" cx="492" cy="442" rx="82" ry="62"/>
+  <ellipse data-region="shell-l" data-name="Hoa văn trái" fill="#b5764f" cx="348" cy="506" rx="54" ry="44"/>
+  <ellipse data-region="shell-r" data-name="Hoa văn phải" fill="#b5764f" cx="636" cy="506" rx="54" ry="44"/>
+
+  <circle data-line="1" fill="#40342e" cx="794" cy="420" r="17"/>
+  <circle data-line="1" fill="#ffffff" cx="800" cy="414" r="6"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M776 476 C790 488 810 488 824 476"/>
+  <ellipse data-line="1" fill="#ffb3c1" cx="742" cy="470" rx="20" ry="13"/>
+</svg>

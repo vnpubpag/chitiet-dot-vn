@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Su tu - asset tu tao (CC0). -->
+  <path data-region="tail" data-name="Đuôi" fill="#f4b860"
+    d="M700 806 C830 816 884 766 884 706 C884 676 852 668 846 696 C840 734 800 764 690 754 Z"/>
+  <ellipse data-region="tail-tuft" data-name="Chùm đuôi" fill="#e07b39" cx="874" cy="694" rx="42" ry="48"/>
+  <ellipse data-region="body" data-name="Thân" fill="#f4b860" cx="512" cy="774" rx="238" ry="162"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#ffe3b3" cx="512" cy="806" rx="132" ry="100"/>
+  <ellipse data-region="paw-l" data-name="Chân trái" fill="#e8a54b" cx="402" cy="898" rx="78" ry="44"/>
+  <ellipse data-region="paw-r" data-name="Chân phải" fill="#e8a54b" cx="622" cy="898" rx="78" ry="44"/>
+  <path data-region="mane" data-name="Bờm" fill="#e07b39"
+    d="M802 400 Q845 489 763 545 Q756 644 657 651 Q601 733 512 690 Q423 733 367 651 Q268 644 261 545 Q179 489 222 400 Q179 311 261 255 Q268 156 367 149 Q423 67 512 110 Q601 67 657 149 Q756 156 763 255 Q845 311 802 400 Z"/>
+  <circle data-region="ear-l" data-name="Tai trái" fill="#f4b860" cx="352" cy="246" r="60"/>
+  <circle data-region="ear-r" data-name="Tai phải" fill="#f4b860" cx="672" cy="246" r="60"/>
+  <circle data-region="inner-ear-l" data-name="Tai trong trái" fill="#ffd9a0" cx="352" cy="246" r="32"/>
+  <circle data-region="inner-ear-r" data-name="Tai trong phải" fill="#ffd9a0" cx="672" cy="246" r="32"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#f4b860" cx="512" cy="400" rx="206" ry="186"/>
+  <ellipse data-region="muzzle" data-name="Mõm" fill="#fff1d6" cx="512" cy="478" rx="112" ry="76"/>
+
+  <ellipse data-line="1" fill="#40342e" cx="428" cy="380" rx="22" ry="29"/>
+  <ellipse data-line="1" fill="#40342e" cx="596" cy="380" rx="22" ry="29"/>
+  <circle data-line="1" fill="#ffffff" cx="436" cy="370" r="7"/>
+  <circle data-line="1" fill="#ffffff" cx="604" cy="370" r="7"/>
+  <path data-line="1" fill="#a9683b" d="M490 452 L534 452 C541 452 540 462 535 466 L518 479 C514 482 510 482 506 479 L489 466 C484 462 483 452 490 452 Z"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M512 478 C512 500 500 508 484 506 M512 478 C512 500 524 508 540 506"/>
+</svg>

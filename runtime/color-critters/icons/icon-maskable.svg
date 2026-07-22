@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Icon maskable - vung an toan 80% - tu tao (CC0) -->
+  <rect width="512" height="512" fill="#fdf6ec"/>
+  <path d="M256 116 C212 188 156 244 156 310 a100 100 0 0 0 200 0 C356 244 300 188 256 116 Z" fill="#f4a259" stroke="#40342e" stroke-width="16" stroke-linejoin="round"/>
+  <circle cx="224" cy="314" r="13" fill="#40342e"/>
+  <circle cx="288" cy="314" r="13" fill="#40342e"/>
+  <path d="M232 348 q24 20 48 0" fill="none" stroke="#40342e" stroke-width="12" stroke-linecap="round"/>
+</svg>

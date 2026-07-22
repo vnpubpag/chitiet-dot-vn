@@ -1,0 +1,9 @@
+{
+  "id": "lion",
+  "name": { "vi": "Sư tử", "en": "Lion" },
+  "category": "forest",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#f4b860", "#e07b39", "#ffe3b3", "#fff1d6", "#e8a54b"],
+  "regionCount": 13
+}

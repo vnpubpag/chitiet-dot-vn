@@ -1,0 +1,9 @@
+{
+  "id": "fish",
+  "name": { "vi": "Cá nhỏ", "en": "Fish" },
+  "category": "sea",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#8ecae6", "#d0ecf7", "#ffd166"],
+  "regionCount": 6
+}

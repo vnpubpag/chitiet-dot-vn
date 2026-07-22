@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Tho con - asset tu tao (CC0). -->
+  <ellipse data-region="ear-l" data-name="Tai trái" fill="#e6dff2" cx="424" cy="188" rx="60" ry="152" data-rot="-10"/>
+  <ellipse data-region="ear-r" data-name="Tai phải" fill="#e6dff2" cx="600" cy="188" rx="60" ry="152" data-rot="10"/>
+  <ellipse data-region="inner-ear-l" data-name="Tai trong trái" fill="#ffc2cc" cx="426" cy="200" rx="30" ry="108" data-rot="-10"/>
+  <ellipse data-region="inner-ear-r" data-name="Tai trong phải" fill="#ffc2cc" cx="598" cy="200" rx="30" ry="108" data-rot="10"/>
+  <ellipse data-region="body" data-name="Thân" fill="#e6dff2" cx="512" cy="756" rx="215" ry="162"/>
+  <ellipse data-region="foot-l" data-name="Chân trái" fill="#f5f1fb" cx="412" cy="886" rx="88" ry="48"/>
+  <ellipse data-region="foot-r" data-name="Chân phải" fill="#f5f1fb" cx="612" cy="886" rx="88" ry="48"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#ffffff" cx="512" cy="790" rx="115" ry="95"/>
+  <ellipse data-region="head" data-name="Đầu" fill="#e6dff2" cx="512" cy="430" rx="215" ry="192"/>
+  <ellipse data-region="muzzle" data-name="Mõm" fill="#ffffff" cx="512" cy="506" rx="98" ry="64"/>
+
+  <ellipse data-line="1" fill="#ffc2cc" cx="392" cy="480" rx="30" ry="18"/>
+  <ellipse data-line="1" fill="#ffc2cc" cx="632" cy="480" rx="30" ry="18"/>
+  <ellipse data-line="1" fill="#40342e" cx="430" cy="408" rx="23" ry="30"/>
+  <ellipse data-line="1" fill="#40342e" cx="594" cy="408" rx="23" ry="30"/>
+  <circle data-line="1" fill="#ffffff" cx="438" cy="398" r="8"/>
+  <circle data-line="1" fill="#ffffff" cx="602" cy="398" r="8"/>
+  <path data-line="1" fill="#f2a0b5" d="M494 476 L530 476 C537 476 536 486 531 490 L518 500 C514 503 510 503 506 500 L493 490 C488 486 487 476 494 476 Z"/>
+  <rect data-line="1" fill="#ffffff" stroke="#40342e" stroke-width="7" x="494" y="500" width="36" height="28" rx="8"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="7"
+    d="M382 430 L300 418 M384 452 L304 462 M642 430 L724 418 M640 452 L720 462"/>
+</svg>

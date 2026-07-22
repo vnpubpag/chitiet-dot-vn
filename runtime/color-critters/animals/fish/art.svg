@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+  <!-- Ca nho - asset tu tao (CC0). -->
+  <path data-region="tail-fin" data-name="Vây đuôi" fill="#ffd166"
+    d="M320 512 C240 424 158 402 172 500 C176 508 176 516 172 524 C158 622 240 600 320 512 Z"/>
+  <path data-region="fin-top" data-name="Vây lưng" fill="#ffd166"
+    d="M462 344 C466 250 552 224 648 262 C606 300 584 330 574 352 Z"/>
+  <ellipse data-region="body" data-name="Thân" fill="#8ecae6" cx="560" cy="512" rx="280" ry="188"/>
+  <ellipse data-region="belly" data-name="Bụng" fill="#d0ecf7" cx="560" cy="586" rx="222" ry="104"/>
+  <path data-region="fin-side" data-name="Vây bên" fill="#ffd166"
+    d="M552 540 C616 556 642 606 602 640 C560 664 518 622 528 570 Z"/>
+  <path data-region="fin-low" data-name="Vây bụng" fill="#ffd166"
+    d="M452 668 C440 728 482 748 526 726 C504 706 484 694 478 662 Z"/>
+
+  <circle data-line="1" fill="#ffffff" cx="726" cy="452" r="44"/>
+  <circle data-line="1" fill="#40342e" cx="734" cy="456" r="21"/>
+  <circle data-line="1" fill="#ffffff" cx="742" cy="446" r="7"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
+    d="M742 540 C756 552 776 552 790 540"/>
+  <ellipse data-line="1" fill="#ffb3c1" cx="688" cy="520" rx="26" ry="16"/>
+  <path data-line="1" fill="none" stroke="#40342e" stroke-width="7"
+    d="M420 470 C450 500 450 560 424 590 M480 448 C516 494 516 570 484 614"/>
+  <circle data-line="1" fill="none" stroke="#8ecae6" stroke-width="8" cx="906" cy="332" r="26"/>
+  <circle data-line="1" fill="none" stroke="#8ecae6" stroke-width="7" cx="852" cy="252" r="17"/>
+  <circle data-line="1" fill="none" stroke="#8ecae6" stroke-width="6" cx="920" cy="196" r="11"/>
+</svg>

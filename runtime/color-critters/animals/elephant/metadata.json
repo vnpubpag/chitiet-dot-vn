@@ -1,0 +1,9 @@
+{
+  "id": "elephant",
+  "name": { "vi": "Voi con", "en": "Elephant" },
+  "category": "forest",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#a8b6dd", "#d3dcf5", "#f2c6d4", "#93a3cf"],
+  "regionCount": 10
+}

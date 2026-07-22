@@ -1,0 +1,9 @@
+{
+  "id": "bear",
+  "name": { "vi": "Gấu nâu", "en": "Bear" },
+  "category": "forest",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#b07d4f", "#eac89b", "#9c6b40", "#d9a870"],
+  "regionCount": 10
+}

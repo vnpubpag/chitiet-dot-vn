@@ -1,0 +1,9 @@
+{
+  "id": "butterfly",
+  "name": { "vi": "Bươm bướm", "en": "Butterfly" },
+  "category": "insects",
+  "width": 1024,
+  "height": 1024,
+  "defaultPalette": ["#8ecae6", "#cdb4db", "#ffd166", "#95d5b2", "#f7d6e8"],
+  "regionCount": 10
+}
