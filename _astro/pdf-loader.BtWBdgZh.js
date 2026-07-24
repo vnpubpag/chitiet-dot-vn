@@ -1,0 +1,1 @@
+import{t as e}from"./pdfjs-loader.4QKJchpK.js";var t=50*1024*1024;async function n(){return e()}async function r(e,t){return await e.getDocument({data:t}).promise}export{n,t as r,r as t};
