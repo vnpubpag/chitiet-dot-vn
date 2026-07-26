@@ -1,23 +1,186 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" data-sw="10" data-stroke="#40342e">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 1024 1024"
+   data-sw="10"
+   data-stroke="#40342e"
+   version="1.1"
+   id="svg14"
+   sodipodi:docname="art.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.78808594"
+     inkscape:cx="468.22305"
+     inkscape:cy="552.60471"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg14" />
   <!-- Gau nau - asset tu tao (CC0). -->
-  <circle data-region="ear-l" data-name="Tai trái" fill="#b07d4f" cx="336" cy="232" r="86"/>
-  <circle data-region="ear-r" data-name="Tai phải" fill="#b07d4f" cx="688" cy="232" r="86"/>
-  <circle data-region="inner-ear-l" data-name="Tai trong trái" fill="#eac89b" cx="336" cy="232" r="45"/>
-  <circle data-region="inner-ear-r" data-name="Tai trong phải" fill="#eac89b" cx="688" cy="232" r="45"/>
-  <ellipse data-region="body" data-name="Thân" fill="#b07d4f" cx="512" cy="756" rx="248" ry="172"/>
-  <ellipse data-region="belly" data-name="Bụng" fill="#eac89b" cx="512" cy="792" rx="138" ry="105"/>
-  <ellipse data-region="paw-l" data-name="Chân trái" fill="#9c6b40" cx="396" cy="894" rx="82" ry="48"/>
-  <ellipse data-region="paw-r" data-name="Chân phải" fill="#9c6b40" cx="628" cy="894" rx="82" ry="48"/>
-  <ellipse data-region="head" data-name="Đầu" fill="#b07d4f" cx="512" cy="400" rx="236" ry="206"/>
-  <ellipse data-region="muzzle" data-name="Mõm" fill="#eac89b" cx="512" cy="486" rx="122" ry="86"/>
-
-  <ellipse data-line="1" fill="#40342e" cx="424" cy="378" rx="22" ry="28"/>
-  <ellipse data-line="1" fill="#40342e" cx="600" cy="378" rx="22" ry="28"/>
-  <circle data-line="1" fill="#ffffff" cx="432" cy="369" r="7"/>
-  <circle data-line="1" fill="#ffffff" cx="608" cy="369" r="7"/>
-  <ellipse data-line="1" fill="#40342e" cx="512" cy="458" rx="27" ry="20"/>
-  <path data-line="1" fill="none" stroke="#40342e" stroke-width="8"
-    d="M512 478 L512 500 M512 500 C512 520 498 528 482 524 M512 500 C512 520 526 528 542 524"/>
-  <ellipse data-line="1" fill="#d9a870" cx="376" cy="452" rx="30" ry="18"/>
-  <ellipse data-line="1" fill="#d9a870" cx="648" cy="452" rx="30" ry="18"/>
+  <circle
+     data-region="ear-l"
+     data-name="Tai trái"
+     fill="#b07d4f"
+     cx="336"
+     cy="232"
+     r="86"
+     id="circle1" />
+  <circle
+     data-region="ear-r"
+     data-name="Tai phải"
+     fill="#b07d4f"
+     cx="688"
+     cy="232"
+     r="86"
+     id="circle2" />
+  <circle
+     data-region="inner-ear-l"
+     data-name="Tai trong trái"
+     fill="#eac89b"
+     cx="336"
+     cy="232"
+     r="45"
+     id="circle3" />
+  <circle
+     data-region="inner-ear-r"
+     data-name="Tai trong phải"
+     fill="#eac89b"
+     cx="688"
+     cy="232"
+     r="45"
+     id="circle4" />
+  <ellipse
+     data-region="body"
+     data-name="Thân"
+     fill="#b07d4f"
+     cx="512"
+     cy="756"
+     rx="248"
+     ry="172"
+     id="ellipse4" />
+  <g
+     id="g14">
+    <ellipse
+       data-region="belly"
+       data-name="Bụng"
+       fill="#eac89b"
+       cx="512"
+       cy="792"
+       rx="138"
+       ry="105"
+       id="ellipse5" />
+    <ellipse
+       data-region="paw-l"
+       data-name="Chân trái"
+       fill="#9c6b40"
+       cx="396"
+       cy="894"
+       rx="82"
+       ry="48"
+       id="ellipse6" />
+  </g>
+  <ellipse
+     data-region="paw-r"
+     data-name="Chân phải"
+     fill="#9c6b40"
+     cx="628"
+     cy="894"
+     rx="82"
+     ry="48"
+     id="ellipse7" />
+  <ellipse
+     data-region="head"
+     data-name="Đầu"
+     fill="#b07d4f"
+     cx="512"
+     cy="400"
+     rx="236"
+     ry="206"
+     id="ellipse8"
+     style="stroke:none;stroke-opacity:1" />
+  <ellipse
+     data-region="muzzle"
+     data-name="Mõm"
+     fill="#eac89b"
+     cx="512"
+     cy="486"
+     rx="122"
+     ry="86"
+     id="ellipse9" />
+  <ellipse
+     data-line="1"
+     fill="#40342e"
+     cx="424"
+     cy="378"
+     rx="22"
+     ry="28"
+     id="ellipse10" />
+  <ellipse
+     data-line="1"
+     fill="#40342e"
+     cx="600"
+     cy="378"
+     rx="22"
+     ry="28"
+     id="ellipse11" />
+  <circle
+     data-line="1"
+     fill="#ffffff"
+     cx="432"
+     cy="369"
+     r="7"
+     id="circle11" />
+  <circle
+     data-line="1"
+     fill="#ffffff"
+     cx="608"
+     cy="369"
+     r="7"
+     id="circle12" />
+  <ellipse
+     data-line="1"
+     fill="#40342e"
+     cx="512"
+     cy="458"
+     rx="27"
+     ry="20"
+     id="ellipse12" />
+  <path
+     data-line="1"
+     fill="none"
+     stroke="#40342e"
+     stroke-width="8"
+     d="M512 478 L512 500 M512 500 C512 520 498 528 482 524 M512 500 C512 520 526 528 542 524"
+     id="path12" />
+  <ellipse
+     data-line="1"
+     fill="#d9a870"
+     cx="376"
+     cy="452"
+     rx="30"
+     ry="18"
+     id="ellipse13" />
+  <ellipse
+     data-line="1"
+     fill="#d9a870"
+     cx="648"
+     cy="452"
+     rx="30"
+     ry="18"
+     id="ellipse14" />
 </svg>
