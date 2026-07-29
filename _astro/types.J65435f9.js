@@ -1,0 +1,1 @@
+var e=`wss://webrtc-signaling.thaison-ng-vn.workers.dev/room/`,t=`https://cf-turn-worker.thaison-ng-vn.workers.dev/turn`,n=4*1024*1024,r=1*1024*1024,i=1e4,a=3e3,o=3e4;export{a,i,r as n,e as o,o as r,t as s,n as t};
