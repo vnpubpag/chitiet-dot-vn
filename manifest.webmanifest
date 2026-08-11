@@ -1,0 +1,57 @@
+{
+    "name": "Chitiet.vn - Công cụ trực tuyến",
+    "short_name": "Chitiet.vn",
+    "description": "Công cụ trực tuyến miễn phí và hướng dẫn chi tiết. Chạy hoàn toàn trên trình duyệt, nhanh và bảo mật.",
+    "lang": "vi",
+    "dir": "ltr",
+    "id": "/",
+    "start_url": "/?utm_source=pwa",
+    "scope": "/",
+    "display": "standalone",
+    "display_override": ["standalone", "minimal-ui"],
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "/images/pwa/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/pwa/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/pwa/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Văn phòng",
+            "url": "/office/?utm_source=pwa",
+            "description": "Công cụ xử lý tài liệu, PDF, ảnh"
+        },
+        {
+            "name": "Tiện ích",
+            "url": "/tools/?utm_source=pwa",
+            "description": "Tiện ích trực tuyến hằng ngày"
+        },
+        {
+            "name": "Giải trí",
+            "url": "/fun/?utm_source=pwa",
+            "description": "Game và công cụ giải trí"
+        },
+        {
+            "name": "Hướng dẫn",
+            "url": "/guide/?utm_source=pwa",
+            "description": "Bài hướng dẫn chi tiết"
+        }
+    ]
+}

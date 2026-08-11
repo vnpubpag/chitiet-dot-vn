@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <radialGradient id="pskin" cx="42%" cy="34%" r="80%">
+      <stop offset="0%" stop-color="#f7c56f"/>
+      <stop offset="45%" stop-color="#f2924f"/>
+      <stop offset="100%" stop-color="#d8485c"/>
+    </radialGradient>
+  </defs>
+  <!-- Cuong -->
+  <path d="M78 18 L84 8" stroke="#5c3d1e" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M82 12 C90 6 100 8 102 14 C94 18 86 18 82 12 Z" fill="#5f8f3e"/>
+  <!-- Than qua dao (tron xoay quanh truc cheo cuong-day) -->
+  <circle cx="58" cy="64" r="46" fill="url(#pskin)"/>
+  <!-- Lom cuong -->
+  <path d="M70 24 C74 20 82 20 84 24 C80 30 72 30 70 24 Z" fill="#c2434f" opacity="0.55"/>
+  <!-- Duong cat co cau 3x3 (nghieng theo truc cheo) -->
+  <g stroke="#7a2733" stroke-width="2.4" fill="none" opacity="0.75" stroke-linecap="round">
+    <path d="M22 40 C40 52 76 56 100 48"/>
+    <path d="M16 72 C38 84 80 86 103 74"/>
+    <path d="M40 20 C34 44 36 84 48 108"/>
+    <path d="M74 22 C66 46 66 86 76 108"/>
+  </g>
+</svg>
