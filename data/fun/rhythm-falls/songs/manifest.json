@@ -1,0 +1,45 @@
+{
+    "version": 1,
+    "songs": [
+        {
+            "id": "song-sample",
+            "title": "Bản nhạc mẫu",
+            "artist": "Đang cập nhật",
+            "audio": "./song-sample/audio.mp3",
+            "charts": [
+                {
+                    "difficulty": "easy",
+                    "file": "./song-sample/chart-easy.json"
+                },
+                {
+                    "difficulty": "normal",
+                    "file": "./song-sample/chart-normal.json"
+                }
+            ],
+            "durationSec": 240,
+            "bpm": 120,
+            "offsetMs": 0,
+            "license": "Public domain / CC (chờ cập nhật attribution chi tiết)"
+        },
+        {
+            "id": "song-warriors-footsteps",
+            "title": "Warriors' Footsteps",
+            "artist": "Đang cập nhật",
+            "audio": "./song-warriors-footsteps/audio.mp3",
+            "charts": [
+                {
+                    "difficulty": "easy",
+                    "file": "./song-warriors-footsteps/chart-easy.json"
+                },
+                {
+                    "difficulty": "normal",
+                    "file": "./song-warriors-footsteps/chart-normal.json"
+                }
+            ],
+            "durationSec": 159,
+            "bpm": 120,
+            "offsetMs": 0,
+            "license": "Public domain / CC (chờ cập nhật attribution chi tiết)"
+        }
+    ]
+}

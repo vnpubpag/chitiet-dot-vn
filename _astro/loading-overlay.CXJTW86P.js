@@ -1,0 +1,1 @@
+function e(e,t){let n=document.getElementById(e);if(n){if(t){let e=n.querySelector(`.loading-overlay__label`);e&&(e.textContent=t)}n.setAttribute(`aria-hidden`,`false`)}}function t(e){document.getElementById(e)?.setAttribute(`aria-hidden`,`true`)}export{e as n,t};
