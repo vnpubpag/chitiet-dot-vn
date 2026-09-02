@@ -22,7 +22,7 @@
  * runtime_architecture.md muc PWA.
  */
 
-const VERSION = '49d120fdcb87';
+const VERSION = '37797906963e';
 const CACHE_NAME = 'ct-pwa-' + VERSION;
 const PRECACHE = ["/offline/","/manifest.webmanifest","/logo.png","/favicon.ico","/favicon.svg","/images/pwa/icon-192.png","/images/pwa/icon-512.png","/images/pwa/icon-maskable-512.png","/images/pwa/apple-touch-icon.png","/_astro/RivePlayerWidget.CCnsejXS.css","/_astro/themes.CRzWqwNz.css","/_astro/layout.Dj0tpki4.css","/_astro/RivePlayerWidget.astro_astro_type_script_index_0_lang.BpFoMc76.js","/_astro/PwaSetup.astro_astro_type_script_index_0_lang.C7A9KLF4.js"];
 const OFFLINE_URL = '/offline/';
